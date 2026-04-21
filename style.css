@@ -617,13 +617,23 @@ a {
 .site-footer {
   background: linear-gradient(165deg, #6b5285 0%, #4a3a5c 40%, #2d2438 100%);
   color: rgba(255, 255, 255, 0.88);
-  padding: 2.35rem 0 0;
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.9rem;
 }
 
 .site-footer__grid {
   display: grid;
   gap: 1.75rem;
-  padding-bottom: 1.75rem;
+  padding-bottom: 0;
+  background: transparent;
+}
+
+.site-footer__brand,
+.site-footer__block,
+.site-footer__bottom,
+.site-footer .container {
+  background: transparent;
 }
 
 .site-footer__brand img {
@@ -682,13 +692,13 @@ a {
 
 .site-footer__bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 1rem 1.25rem 1.35rem;
+  padding: 1.25rem 1.25rem 0;
   text-align: center;
 }
 
 .site-footer__bottom p {
   margin: 0;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   opacity: 0.72;
 }
 
