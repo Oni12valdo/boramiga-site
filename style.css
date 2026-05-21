@@ -316,19 +316,6 @@ a {
   align-items: center;
 }
 
-.hero__eyebrow {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--color-pink);
-  margin: 0 0 0.75rem;
-  padding: 0.35rem 0.9rem;
-  background: rgba(233, 82, 139, 0.1);
-  border-radius: var(--radius-pill);
-}
-
 .hero__title {
   font-size: clamp(2rem, 6vw, 3.25rem);
   font-weight: 700;
