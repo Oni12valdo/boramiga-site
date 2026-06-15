@@ -1,115 +1,87 @@
 window.BoraMigaData = {
   experiences: [
     {
-      id: "cultura",
-      title: "Cultura e música",
-      icon: "🎶",
-      items: [
-        "Karaokê temático anos 50",
-        "Show da Shakira em Copacabana",
-        "Show da Vanessa da Mata no Arpoador",
-        "Feijoada com Samba",
-        "Roda de Samba",
-        "Barzinho na Lapa",
-        "Cinema",
-        "Planetário da Gávea",
-        "Arraiá da Orquestra Sanfônica"
-      ]
+      id: "cultura-arte",
+      title: "Cultura e arte",
+      icon: "🎨",
+      description: "Cinema, museus, exposições, planetário e experiências culturais."
     },
     {
       id: "gastronomia",
-      title: "Gastronomia",
+      title: "Gastronomia e encontros",
       icon: "🍽️",
-      items: [
-        "Brunch com pintura em tela",
-        "Centenária Confeitaria Colombo",
-        "Restaurante Flutuante Rio"
-      ]
+      description: "Brunch, restaurantes, cafés, bares e encontros leves."
+    },
+    {
+      id: "musica-eventos",
+      title: "Música e eventos",
+      icon: "🎶",
+      description: "Shows, karaokê, festas, encontros musicais e eventos especiais."
     },
     {
       id: "natureza",
-      title: "Natureza e ar livre",
+      title: "Natureza e passeios",
       icon: "🌿",
-      items: [
-        "Passeio de lancha",
-        "Passeio a cavalo",
-        "Aula experimental de Golfe",
-        "Picnic na Quinta da Boa Vista",
-        "Picnic no Aterro do Flamengo",
-        "Praia",
-        "Club Fazenda com Amigas",
-        "Sítio com parque aquático",
-        "Caminhada na Trilha da Urca",
-        "Trilha no Pão de Açúcar"
-      ]
+      description: "Praia, trilhas, passeios ao ar livre e novas descobertas."
     },
     {
-      id: "rio",
-      title: "Passeios pelo Rio",
-      icon: "🏛️",
-      items: ["Parque das Ruínas", "Escadaria Selarón"]
-    },
-    {
-      id: "bemestar",
-      title: "Bem-estar e encontros sociais",
+      id: "lazer",
+      title: "Lazer e bem-estar",
       icon: "💜",
-      items: [
-        "Encontros acolhedores para novas amizades",
-        "Experiências em grupo com leveza e respeito"
-      ]
+      description: "Momentos de descanso, diversão, autocuidado e novas vivências."
     }
   ],
   safety: [
     {
-      icon: "📅",
-      title: "Comunicação prévia",
-      text: "Encontros organizados com informações claras antes de cada experiência."
+      icon: "👭",
+      title: "Comunidade feminina",
+      text: "Um espaço pensado para mulheres que querem sair mais, se conectar e se sentir parte de algo."
+    },
+    {
+      icon: "🎯",
+      title: "Encontros com propósito",
+      text: "Experiências organizadas com clareza e intenção de criar conexões reais entre participantes."
     },
     {
       icon: "💬",
       title: "Grupo VIP",
-      text: "Canal no WhatsApp para novidades, orientações e comunidade."
+      text: "Canal no WhatsApp para novidades, orientações e conversa com outras amigas da comunidade."
     },
     {
       icon: "🤝",
-      title: "Convivência respeitosa",
-      text: "Regras de respeito, acolhimento e pertencimento para todas."
-    },
-    {
-      icon: "🔒",
-      title: "Privacidade",
-      text: "Cuidado com seus dados e informações pessoais."
+      title: "Comunicação respeitosa",
+      text: "Ambiente de escuta, respeito e cuidado mútuo em cada interação da comunidade."
     },
     {
       icon: "✨",
-      title: "Participação voluntária",
-      text: "Transparência em cada etapa — você escolhe como participar."
+      title: "Experiências reais",
+      text: "Passeios, encontros e vivências presenciais que transformam vontade em memórias."
     }
   ],
   faq: [
     {
       q: "O BoraMiga já é um app?",
-      a: "Estamos em fase de lançamento. Esta página é o canal oficial para lista de espera e novidades enquanto o app chega às lojas."
+      a: "Estamos em fase de lançamento. Esta página concentra a lista de espera e as novidades enquanto o app chega às lojas."
     },
     {
       q: "O cadastro é gratuito?",
-      a: "Sim. Entrar na lista de espera e participar do grupo VIP no WhatsApp é gratuito."
+      a: "Sim. Entrar na lista de espera e participar do grupo VIP no WhatsApp não tem custo."
     },
     {
       q: "Quem pode participar?",
-      a: "Mulheres que querem fazer novas amizades, sair mais e viver experiências no Rio com companhia e acolhimento."
+      a: "Mulheres que querem fazer novas amizades, sair mais e viver experiências reais com companhia e acolhimento."
     },
     {
       q: "Como entro no grupo VIP?",
-      a: "Use o botão \"Entrar no grupo VIP\" nesta página para acessar o WhatsApp oficial da comunidade."
+      a: "Clique em \"Entrar no grupo VIP\" nesta página para acessar o WhatsApp oficial da comunidade."
     },
     {
       q: "Os encontros são pagos?",
-      a: "Cada experiência pode ter custos próprios. Sempre comunicamos com antecedência no grupo."
+      a: "Cada experiência pode ter custos próprios. Sempre avisamos com antecedência no grupo."
     },
     {
-      q: "Meus dados estão seguros?",
-      a: "Utilizamos formulário oficial do Google Forms e tratamos suas informações com cuidado."
+      q: "Como meus dados são tratados?",
+      a: "Usamos o formulário oficial do Google Forms e tratamos suas informações com cuidado e responsabilidade."
     },
     {
       q: "Como acompanho o lançamento do app?",

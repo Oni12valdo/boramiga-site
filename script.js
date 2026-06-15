@@ -32,11 +32,15 @@
 
     var html = data.experiences
       .map(function (cat) {
-        var chips = cat.items
-          .map(function (item) {
-            return '<li class="exp-chip">' + escapeHtml(item) + "</li>";
-          })
-          .join("");
+        var body = cat.description
+          ? '<p class="exp-category__text">' + escapeHtml(cat.description) + "</p>"
+          : '<ul class="exp-chips" role="list">' +
+            cat.items
+              .map(function (item) {
+                return '<li class="exp-chip">' + escapeHtml(item) + "</li>";
+              })
+              .join("") +
+            "</ul>";
 
         return (
           '<article class="exp-category" id="exp-' +
@@ -50,9 +54,7 @@
           escapeHtml(cat.title) +
           "</h3>" +
           "</div>" +
-          '<ul class="exp-chips" role="list">' +
-          chips +
-          "</ul>" +
+          body +
           "</article>"
         );
       })
@@ -91,9 +93,12 @@
     root.innerHTML = data.faq
       .map(function (item, i) {
         var id = "faq-panel-" + i;
+        var qId = "faq-question-" + i;
         return (
           '<div class="faq-item">' +
-          '<button type="button" class="faq-item__btn" aria-expanded="false" aria-controls="' +
+          '<button type="button" class="faq-item__btn" id="' +
+          qId +
+          '" aria-expanded="false" aria-controls="' +
           id +
           '">' +
           "<span>" +
@@ -103,6 +108,8 @@
           "</button>" +
           '<div class="faq-item__panel" id="' +
           id +
+          '" role="region" aria-labelledby="' +
+          qId +
           '" hidden>' +
           "<p>" +
           escapeHtml(item.a) +
@@ -114,7 +121,7 @@
       .join("");
 
     root.querySelectorAll(".faq-item__btn").forEach(function (btn) {
-      btn.addEventListener("click", function () {
+      function toggleItem() {
         var item = btn.closest(".faq-item");
         var panel = item.querySelector(".faq-item__panel");
         var isOpen = item.classList.contains("is-open");
@@ -131,6 +138,14 @@
           item.classList.add("is-open");
           btn.setAttribute("aria-expanded", "true");
           panel.hidden = false;
+        }
+      }
+
+      btn.addEventListener("click", toggleItem);
+      btn.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          toggleItem();
         }
       });
     });
@@ -165,13 +180,16 @@
 
     function closeNav() {
       toggle.setAttribute("aria-expanded", "false");
+      toggle.setAttribute("aria-label", "Abrir menu de navegação");
       document.body.classList.remove("nav-open");
     }
 
     toggle.addEventListener("click", function () {
       var isOpen = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", isOpen ? "false" : "true");
-      document.body.classList.toggle("nav-open", !isOpen);
+      var nextOpen = !isOpen;
+      toggle.setAttribute("aria-expanded", nextOpen ? "true" : "false");
+      toggle.setAttribute("aria-label", nextOpen ? "Fechar menu de navegação" : "Abrir menu de navegação");
+      document.body.classList.toggle("nav-open", nextOpen);
     });
 
     links.forEach(function (link) {
@@ -222,6 +240,11 @@
         e.preventDefault();
         target.scrollIntoView({ behavior: "smooth", block: "start" });
         history.pushState(null, "", targetId);
+        var focusTarget = target.querySelector("h1, h2, .section__title, .mission__title") || target;
+        if (!focusTarget.hasAttribute("tabindex")) {
+          focusTarget.setAttribute("tabindex", "-1");
+        }
+        focusTarget.focus({ preventScroll: true });
       });
     });
   }
