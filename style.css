@@ -502,7 +502,7 @@ body.nav-open .site-header__menu {
 }
 
 .section--partners {
-  padding: 2rem 0 2.5rem;
+  padding: 1.75rem 0 2rem;
   background: var(--color-white);
 }
 
@@ -860,18 +860,18 @@ body.nav-open .site-header__menu {
 
 .partners__item {
   margin: 0;
-  transition: transform var(--transition), opacity var(--transition);
-  opacity: 0.9;
-}
-
-.partners__item:hover {
-  opacity: 1;
-  transform: scale(1.03);
+  width: 100%;
+  line-height: 0;
 }
 
 .partners__item img {
-  max-width: min(100%, 420px);
+  display: block;
+  width: 100%;
+  max-width: min(100%, 960px);
+  height: auto;
   margin-inline: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 /* ── Footer ── */
