@@ -4,6 +4,10 @@
   var config = window.BoraMigaConfig || { links: {} };
   var data = window.BoraMigaData || { experiences: [], safety: [], faq: [] };
 
+  var navSectionIds = ["home", "por-que", "como-funciona", "clube", "seguranca", "faq"];
+  var headerOffset = 88;
+  var scrollTicking = false;
+
   function initLinks() {
     var links = config.links;
     if (!links) return;
@@ -29,6 +33,10 @@
   function renderExperiences() {
     var root = document.getElementById("experiences-root");
     if (!root || !data.experiences.length) return;
+
+    var noteHtml = data.experiencesNote
+      ? '<p class="exp-note">' + escapeHtml(data.experiencesNote) + "</p>"
+      : "";
 
     var html = data.experiences
       .map(function (cat) {
@@ -60,7 +68,7 @@
       })
       .join("");
 
-    root.innerHTML = html;
+    root.innerHTML = noteHtml + html;
   }
 
   function renderSafety() {
@@ -95,7 +103,7 @@
         var id = "faq-panel-" + i;
         var qId = "faq-question-" + i;
         return (
-          '<div class="faq-item">' +
+          '<div class="faq-item" role="group">' +
           '<button type="button" class="faq-item__btn" id="' +
           qId +
           '" aria-expanded="false" aria-controls="' +
@@ -119,36 +127,31 @@
         );
       })
       .join("");
+  }
 
-    root.querySelectorAll(".faq-item__btn").forEach(function (btn) {
-      function toggleItem() {
-        var item = btn.closest(".faq-item");
-        var panel = item.querySelector(".faq-item__panel");
-        var isOpen = item.classList.contains("is-open");
+  function toggleFAQ(btn) {
+    var root = document.getElementById("faq-root");
+    if (!root || !btn) return;
 
-        root.querySelectorAll(".faq-item").forEach(function (other) {
-          other.classList.remove("is-open");
-          var otherBtn = other.querySelector(".faq-item__btn");
-          var otherPanel = other.querySelector(".faq-item__panel");
-          if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
-          if (otherPanel) otherPanel.hidden = true;
-        });
+    var item = btn.closest(".faq-item");
+    var panel = item && item.querySelector(".faq-item__panel");
+    if (!item || !panel) return;
 
-        if (!isOpen) {
-          item.classList.add("is-open");
-          btn.setAttribute("aria-expanded", "true");
-          panel.hidden = false;
-        }
-      }
+    var isOpen = item.classList.contains("is-open");
 
-      btn.addEventListener("click", toggleItem);
-      btn.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          toggleItem();
-        }
-      });
+    root.querySelectorAll(".faq-item").forEach(function (other) {
+      other.classList.remove("is-open");
+      var otherBtn = other.querySelector(".faq-item__btn");
+      var otherPanel = other.querySelector(".faq-item__panel");
+      if (otherBtn) otherBtn.setAttribute("aria-expanded", "false");
+      if (otherPanel) otherPanel.hidden = true;
     });
+
+    if (!isOpen) {
+      item.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+      panel.hidden = false;
+    }
   }
 
   function escapeHtml(str) {
@@ -159,100 +162,188 @@
       .replace(/"/g, "&quot;");
   }
 
-  function initHeader() {
-    var header = document.querySelector(".site-header");
-    if (!header) return;
+  function closeMobileNav() {
+    var toggle = document.querySelector(".nav-toggle");
+    if (!toggle) return;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Abrir menu de navegação");
+    document.body.classList.remove("nav-open");
+  }
 
-    function onScroll() {
+  function handleAnchorClick(anchor, e) {
+    var targetId = anchor.getAttribute("href");
+    if (!targetId || targetId === "#") return;
+    var target = document.querySelector(targetId);
+    if (!target) return;
+
+    e.preventDefault();
+
+    if (targetId === "#home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    history.pushState(null, "", targetId);
+
+    var focusTarget = target.querySelector("h1, h2, .section__title, .mission__title") || target;
+    if (!focusTarget.hasAttribute("tabindex")) {
+      focusTarget.setAttribute("tabindex", "-1");
+    }
+    focusTarget.focus({ preventScroll: true });
+  }
+
+  function updateOnScroll() {
+    var header = document.querySelector(".site-header");
+    if (header) {
       header.classList.toggle("is-scrolled", window.scrollY > 24);
     }
 
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }
+    var navLinks = document.querySelectorAll(".nav-link");
+    if (navLinks.length) {
+      var sections = navSectionIds
+        .map(function (id) {
+          return document.getElementById(id);
+        })
+        .filter(Boolean);
 
-  function initMobileNav() {
-    var toggle = document.querySelector(".nav-toggle");
-    var nav = document.getElementById("menu-principal");
-    if (!toggle || !nav) return;
+      if (sections.length) {
+        var scrollPos = window.scrollY + headerOffset;
+        var currentId = sections[0].getAttribute("id");
 
-    var links = nav.querySelectorAll(".nav-link, .site-header__cta");
+        for (var i = sections.length - 1; i >= 0; i--) {
+          if (sections[i].offsetTop <= scrollPos) {
+            currentId = sections[i].getAttribute("id");
+            break;
+          }
+        }
 
-    function closeNav() {
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "Abrir menu de navegação");
-      document.body.classList.remove("nav-open");
+        navLinks.forEach(function (link) {
+          var isActive = link.getAttribute("href") === "#" + currentId;
+          link.classList.toggle("is-active", isActive);
+          if (isActive) {
+            link.setAttribute("aria-current", "page");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      }
     }
 
-    toggle.addEventListener("click", function () {
-      var isOpen = toggle.getAttribute("aria-expanded") === "true";
-      var nextOpen = !isOpen;
-      toggle.setAttribute("aria-expanded", nextOpen ? "true" : "false");
-      toggle.setAttribute("aria-label", nextOpen ? "Fechar menu de navegação" : "Abrir menu de navegação");
-      document.body.classList.toggle("nav-open", nextOpen);
-    });
-
-    links.forEach(function (link) {
-      link.addEventListener("click", function () {
-        if (window.innerWidth < 768) closeNav();
-      });
-    });
-
-    window.addEventListener("resize", function () {
-      if (window.innerWidth >= 768) closeNav();
-    });
-
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") closeNav();
-    });
+    scrollTicking = false;
   }
 
-  function initActiveNav() {
-    var sections = document.querySelectorAll("section[id]");
-    var navLinks = document.querySelectorAll(".nav-link");
-    if (!sections.length || !navLinks.length) return;
+  function onScroll() {
+    if (!scrollTicking) {
+      scrollTicking = true;
+      window.requestAnimationFrame(updateOnScroll);
+    }
+  }
 
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          var id = entry.target.getAttribute("id");
-          navLinks.forEach(function (link) {
-            link.classList.toggle("is-active", link.getAttribute("href") === "#" + id);
-          });
-        });
+  function initDelegatedEvents() {
+    var faqRoot = document.getElementById("faq-root");
+    var nav = document.getElementById("menu-principal");
+    var toggle = document.querySelector(".nav-toggle");
+
+    document.addEventListener(
+      "click",
+      function (e) {
+        var faqBtn = faqRoot && e.target.closest(".faq-item__btn");
+        if (faqBtn && faqRoot.contains(faqBtn)) {
+          toggleFAQ(faqBtn);
+          return;
+        }
+
+        var anchor = e.target.closest('a[href^="#"]');
+        if (anchor) {
+          handleAnchorClick(anchor, e);
+        }
+
+        if (
+          nav &&
+          e.target.closest(".site-header__nav .nav-link, .site-header__nav .site-header__cta") &&
+          window.innerWidth < 768 &&
+          document.body.classList.contains("nav-open")
+        ) {
+          closeMobileNav();
+        }
       },
-      { rootMargin: "-40% 0px -50% 0px", threshold: 0 }
+      false
     );
 
-    sections.forEach(function (section) {
-      observer.observe(section);
-    });
+    document.addEventListener(
+      "keydown",
+      function (e) {
+        if (e.key === "Escape") {
+          closeMobileNav();
+          return;
+        }
+
+        if (e.key !== "Enter" && e.key !== " ") return;
+
+        var faqBtn = faqRoot && e.target.closest(".faq-item__btn");
+        if (faqBtn && faqRoot.contains(faqBtn)) {
+          e.preventDefault();
+          toggleFAQ(faqBtn);
+        }
+      },
+      false
+    );
+
+    if (toggle && nav) {
+      toggle.addEventListener("click", function () {
+        var isOpen = toggle.getAttribute("aria-expanded") === "true";
+        var nextOpen = !isOpen;
+        toggle.setAttribute("aria-expanded", nextOpen ? "true" : "false");
+        toggle.setAttribute(
+          "aria-label",
+          nextOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"
+        );
+        document.body.classList.toggle("nav-open", nextOpen);
+      });
+    }
+
+    window.addEventListener(
+      "resize",
+      function () {
+        if (window.innerWidth >= 768) closeMobileNav();
+        updateOnScroll();
+      },
+      { passive: true }
+    );
   }
 
-  function initSmoothAnchors() {
-    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-      anchor.addEventListener("click", function (e) {
-        var targetId = anchor.getAttribute("href");
-        if (!targetId || targetId === "#") return;
-        var target = document.querySelector(targetId);
-        if (!target) return;
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth", block: "start" });
-        history.pushState(null, "", targetId);
-        var focusTarget = target.querySelector("h1, h2, .section__title, .mission__title") || target;
-        if (!focusTarget.hasAttribute("tabindex")) {
-          focusTarget.setAttribute("tabindex", "-1");
-        }
-        focusTarget.focus({ preventScroll: true });
-      });
-    });
+  function initScrollHandlers() {
+    updateOnScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
   }
 
   function initAOS() {
     if (typeof AOS === "undefined") return;
+
     var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    AOS.init({ duration: 650, easing: "ease-out-cubic", once: true, offset: 48, disable: reduced });
+    if (reduced) return;
+
+    var startAOS = function () {
+      AOS.init({
+        duration: 550,
+        easing: "ease-out-cubic",
+        once: true,
+        offset: 80,
+        delay: 0,
+        mirror: false,
+        anchorPlacement: "top-bottom",
+        disableMutationObserver: true,
+        throttleDelay: 99,
+        debounceDelay: 50
+      });
+    };
+
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(startAOS, { timeout: 1200 });
+    } else {
+      window.setTimeout(startAOS, 200);
+    }
   }
 
   function initFooterYear() {
@@ -265,10 +356,8 @@
     renderExperiences();
     renderSafety();
     renderFAQ();
-    initHeader();
-    initMobileNav();
-    initActiveNav();
-    initSmoothAnchors();
+    initDelegatedEvents();
+    initScrollHandlers();
     initAOS();
     initFooterYear();
   }

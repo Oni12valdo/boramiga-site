@@ -1,34 +1,36 @@
 window.BoraMigaData = {
+  experiencesNote:
+    "As categorias abaixo trazem exemplos de encontros que a comunidade promove. A programação pode variar conforme a cidade e o momento.",
   experiences: [
     {
       id: "cultura-arte",
       title: "Cultura e arte",
       icon: "🎨",
-      description: "Cinema, museus, exposições, planetário e experiências culturais."
+      description: "Exemplos: cinema, museus, exposições, planetário e experiências culturais."
     },
     {
       id: "gastronomia",
       title: "Gastronomia e encontros",
       icon: "🍽️",
-      description: "Brunch, restaurantes, cafés, bares e encontros leves."
+      description: "Exemplos: brunch, restaurantes, cafés, bares e encontros leves."
     },
     {
       id: "musica-eventos",
       title: "Música e eventos",
       icon: "🎶",
-      description: "Shows, karaokê, festas, encontros musicais e eventos especiais."
+      description: "Exemplos: shows, karaokê, festas, encontros musicais e eventos especiais."
     },
     {
       id: "natureza",
       title: "Natureza e passeios",
       icon: "🌿",
-      description: "Praia, trilhas, passeios ao ar livre e novas descobertas."
+      description: "Exemplos: praia, trilhas, passeios ao ar livre e novas descobertas."
     },
     {
       id: "lazer",
       title: "Lazer e bem-estar",
       icon: "💜",
-      description: "Momentos de descanso, diversão, autocuidado e novas vivências."
+      description: "Exemplos: descanso, diversão, autocuidado e novas vivências."
     }
   ],
   safety: [
@@ -55,13 +57,13 @@ window.BoraMigaData = {
     {
       icon: "✨",
       title: "Experiências reais",
-      text: "Passeios, encontros e vivências presenciais que transformam vontade em memórias."
+      text: "Passeios, encontros e vivências em diferentes lugares que transformam vontade em memórias."
     }
   ],
   faq: [
     {
       q: "O BoraMiga já é um app?",
-      a: "Estamos em fase de lançamento. Esta página concentra a lista de espera e as novidades enquanto o app chega às lojas."
+      a: "Estamos em fase de lançamento. Esta página reúne a lista de espera e as novidades oficiais. Quem se cadastra garante acesso antecipado às funcionalidades exclusivas assim que o app chegar às lojas."
     },
     {
       q: "O cadastro é gratuito?",
@@ -69,19 +71,19 @@ window.BoraMigaData = {
     },
     {
       q: "Quem pode participar?",
-      a: "Mulheres que querem fazer novas amizades, sair mais e viver experiências reais com companhia e acolhimento."
+      a: "Mulheres que querem fazer novas amizades, sair mais e viver novas experiências com acolhimento e pertencimento."
     },
     {
       q: "Como entro no grupo VIP?",
-      a: "Clique em \"Entrar no grupo VIP\" nesta página para acessar o WhatsApp oficial da comunidade."
+      a: "Clique em \"Entrar no grupo VIP\" nesta página para acessar o WhatsApp oficial da comunidade e receber novidades dos encontros."
     },
     {
       q: "Os encontros são pagos?",
-      a: "Cada experiência pode ter custos próprios. Sempre avisamos com antecedência no grupo."
+      a: "Cada experiência pode ter custos próprios, como ingressos ou consumo. Sempre avisamos com antecedência no grupo."
     },
     {
       q: "Como meus dados são tratados?",
-      a: "Usamos o formulário oficial do Google Forms e tratamos suas informações com cuidado e responsabilidade."
+      a: "Usamos o formulário oficial do Google Forms e tratamos suas informações com cuidado e responsabilidade, sem compartilhá-las indevidamente."
     },
     {
       q: "Como acompanho o lançamento do app?",

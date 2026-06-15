@@ -8,11 +8,118 @@
       content="BoraMiga é a comunidade para mulheres que querem fazer novas amigas, sair mais e viver experiências reais com companhia, acolhimento e pertencimento."
     />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#E9528B" />
+    <meta name="theme-color" content="#e9528b" />
     <title>BoraMiga — Comunidade para novas amigas e experiências reais</title>
     <link rel="canonical" href="https://boramiga.com.br/" />
     <link rel="icon" type="image/png" href="logoboramiga.png" />
-    <link rel="preload" as="image" href="imagem_topo.png" fetchpriority="high" />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="image" href="imagem_topo.webp" type="image/webp" fetchpriority="high" />
+    <link rel="preload" as="image" href="logoboramiga.webp" type="image/webp" />
+    <link rel="preload" href="style.css" as="style" />
+    <style>
+      :root {
+        --color-bg: #fff0f5;
+        --color-text: #2d1f35;
+        --header-h: 72px;
+        --font: "Poppins", system-ui, -apple-system, sans-serif;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: var(--font);
+        color: var(--color-text);
+        background: var(--color-bg);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      .container {
+        width: 100%;
+        max-width: 1140px;
+        margin-inline: auto;
+        padding-inline: 1.25rem;
+      }
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        background: rgba(255, 240, 245, 0.72);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(179, 112, 176, 0.14);
+      }
+      .site-header__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        min-height: var(--header-h);
+        padding-block: 0.6rem;
+      }
+      .site-header__logo-img {
+        height: clamp(40px, 8vw, 56px);
+        width: auto;
+      }
+      .hero {
+        padding: 2.25rem 0 3.25rem;
+        background: linear-gradient(180deg, #fff0f5 0%, #fce8f0 100%);
+      }
+      .hero__grid {
+        display: grid;
+        gap: 2.25rem;
+        align-items: center;
+      }
+      .hero__visual {
+        order: -1;
+        margin: 0;
+        border-radius: 28px;
+        overflow: hidden;
+        line-height: 0;
+      }
+      .hero__visual img {
+        width: 100%;
+        aspect-ratio: 560 / 640;
+        object-fit: contain;
+        object-position: center top;
+      }
+      .hero__title {
+        font-size: clamp(1.45rem, 4vw, 2.5rem);
+        font-weight: 700;
+        line-height: 1.26;
+        margin: 0 0 1rem;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+    <link
+      rel="preload"
+      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" /></noscript>
     <meta property="og:title" content="BoraMiga — Comunidade para novas amigas e experiências reais" />
     <meta
       property="og:description"
@@ -23,25 +130,27 @@
     <meta property="og:image" content="https://boramiga.com.br/imagem_topo.png" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
+    <meta name="twitter:title" content="BoraMiga — Encontre novas amigas e viva experiências reais" />
+    <meta
+      name="twitter:description"
+      content="Entre para a comunidade BoraMiga e conheça mulheres que querem sair mais, fazer novas amizades e viver experiências com companhia, acolhimento e pertencimento."
     />
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="style.css" />
+    <meta name="twitter:image" content="https://boramiga.com.br/imagem_topo.png" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
         "name": "BoraMiga — Comunidade para novas amigas e experiências reais",
-        "description": "Comunidade e app em lançamento para mulheres que querem fazer novas amizades, sair mais e viver experiências presenciais com companhia e acolhimento.",
+        "description": "Comunidade e app em lançamento para mulheres que querem fazer novas amizades, sair mais e viver experiências presenciais com companhia, acolhimento e pertencimento.",
         "url": "https://boramiga.com.br/",
         "inLanguage": "pt-BR",
         "publisher": {
           "@type": "Organization",
           "name": "BoraMiga",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://boramiga.com.br/logoboramiga.png"
+          },
           "url": "https://boramiga.com.br/"
         }
       }
@@ -53,15 +162,18 @@
     <header class="site-header" id="topo">
       <div class="site-header__inner container">
         <a href="#home" class="site-header__logo" aria-label="BoraMiga — início">
-          <img
-            class="site-header__logo-img"
-            src="logoboramiga.png"
-            alt="BoraMiga"
-            width="180"
-            height="64"
-            loading="eager"
-            decoding="async"
-          />
+          <picture>
+            <source type="image/webp" srcset="logoboramiga.webp" />
+            <img
+              class="site-header__logo-img"
+              src="logoboramiga.png"
+              alt="BoraMiga"
+              width="180"
+              height="64"
+              loading="eager"
+              decoding="async"
+            />
+          </picture>
         </a>
         <button
           type="button"
@@ -106,8 +218,8 @@
                 e descubra que todo lugar pode ser mais leve com companhia.
               </h1>
               <p class="hero__sub">
-                O BoraMiga conecta mulheres que querem sair mais, criar novas amizades e viver experiências reais com
-                companhia, acolhimento e pertencimento.
+                Comunidade para mulheres que querem sair mais, fazer novas amizades e viver momentos compartilhados com
+                acolhimento e pertencimento.
               </p>
               <div class="hero__actions">
                 <a
@@ -131,15 +243,18 @@
               </div>
           </div>
           <figure class="hero__visual" data-aos="fade-left" data-aos-delay="100">
-            <img
-              src="imagem_topo.png"
-              alt="Mulheres reunidas em encontro ao ar livre"
-              width="560"
-              height="640"
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-            />
+            <picture>
+              <source type="image/webp" srcset="imagem_topo.webp" />
+              <img
+                src="imagem_topo.png"
+                alt="Mulheres reunidas em encontro acolhedor"
+                width="560"
+                height="640"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
           </figure>
         </div>
       </section>
@@ -156,14 +271,17 @@
             </p>
           </div>
           <figure class="mission__media" data-aos="fade-up" data-aos-delay="80">
-            <img
-              src="imagem_passeio.png"
-              alt="Grupo de mulheres reunidas em encontro ao ar livre"
-              width="920"
-              height="520"
-              loading="lazy"
-              decoding="async"
-            />
+            <picture>
+              <source type="image/webp" srcset="imagem_passeio.webp" />
+              <img
+                src="imagem_passeio.png"
+                alt="Amigas em passeio e descontração ao ar livre"
+                width="920"
+                height="520"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </figure>
         </div>
       </section>
@@ -219,7 +337,7 @@
             </article>
             <article class="step-card">
               <span class="step-card__num" aria-hidden="true">2</span>
-              <h3 class="step-card__title">Entre no Grupo VIP</h3>
+              <h3 class="step-card__title">Entre no grupo VIP</h3>
               <p class="step-card__text">
                 Participe do WhatsApp para receber novidades dos encontros e conversar com outras amigas.
               </p>
@@ -242,10 +360,13 @@
             <p class="eyebrow">Clube BoraMiga</p>
             <h2 id="club-title" class="section__title">Experiências que conectam</h2>
             <p class="section__lead">
-              O Clube BoraMiga reúne vivências por tema, para você descobrir o tipo de encontro que combina com o seu
-              momento.
+              O Clube BoraMiga reúne vivências por tema para você descobrir encontros e explorar novos lugares juntas.
             </p>
           </header>
+          <p class="club-intro" data-aos="fade-up" data-aos-delay="60">
+            O Clube BoraMiga é o coração da nossa comunidade. Organizamos encontros presenciais pensados para que você
+            saia da rotina e crie conexões reais com facilidade.
+          </p>
           <div id="experiences-root" class="exp-categories" data-aos="fade-up" data-aos-delay="80" aria-live="polite"></div>
           <div class="section__cta-row" data-aos="fade-up">
             <a
@@ -265,11 +386,10 @@
       <section class="section section--safety" id="seguranca" aria-labelledby="safety-title">
         <div class="container">
           <header class="section__head" data-aos="fade-up">
-            <p class="eyebrow">Segurança, acolhimento e confiança</p>
+            <p class="eyebrow">Confiança, acolhimento e cuidado</p>
             <h2 id="safety-title" class="section__title">Uma comunidade feita com cuidado</h2>
             <p class="section__lead">
-              O BoraMiga não é apenas sobre sair. É sobre se sentir acompanhada em uma comunidade feita com cuidado,
-              respeito e propósito.
+              O BoraMiga vai além de combinar planos: é pertencer a uma rede com escuta, respeito e propósito.
             </p>
           </header>
           <div id="safety-root" class="safety-grid" data-aos="fade-up" data-aos-delay="80"></div>
@@ -325,14 +445,17 @@
         <div class="container">
           <div class="partners__card" data-aos="fade-up">
             <figure class="partners__figure">
-              <img
-                src="Apio.png"
-                alt="Logos das instituições apoiadoras do BoraMiga"
-                width="1600"
-                height="284"
-                loading="lazy"
-                decoding="async"
-              />
+              <picture>
+                <source type="image/webp" srcset="Apio.webp" />
+                <img
+                  src="Apio.png"
+                  alt="Logos dos apoiadores: PNUD, Governo do Estado do Rio de Janeiro, FAPERJ, FAETEC, Programa PISTA, Divas do Lucro, APMEA e Explorando com Iris"
+                  width="1600"
+                  height="284"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
               <figcaption class="visually-hidden">
                 PNUD, Governo do Estado do Rio de Janeiro, FAPERJ, FAETEC, Programa PISTA, Divas do Lucro, APMEA e
                 Explorando com Iris
@@ -347,15 +470,18 @@
       <div class="container site-footer__grid">
         <div class="site-footer__col site-footer__col--brand">
           <a href="#home" class="site-footer__brand" aria-label="Voltar ao topo — BoraMiga">
-            <img
-              src="logoboramiga.png"
-              alt=""
-              width="130"
-              height="42"
-              loading="lazy"
-              decoding="async"
-              class="site-footer__logo"
-            />
+            <picture>
+              <source type="image/webp" srcset="logoboramiga.webp" />
+              <img
+                src="logoboramiga.png"
+                alt=""
+                width="130"
+                height="42"
+                loading="lazy"
+                decoding="async"
+                class="site-footer__logo"
+              />
+            </picture>
           </a>
           <p class="site-footer__tagline">
             Viva novas experiências com cuidado, leveza e uma comunidade que acolhe.
@@ -446,7 +572,7 @@
 
     <script src="config.js" defer></script>
     <script src="data.js" defer></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer crossorigin="anonymous"></script>
     <script src="script.js" defer></script>
   </body>
 </html>
