@@ -5,9 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
-      content="BoraMiga — Encontre amigas. Viva histórias. Encontros no Rio de Janeiro e Clube BoraMiga para mulheres."
+      content="Entre para a comunidade BoraMiga e conheça mulheres que querem sair mais, fazer novas amizades e viver experiências com companhia, acolhimento e pertencimento."
     />
-    <title>BoraMiga — Encontre amigas. Viva histórias.</title>
+    <title>BoraMiga — Faça novas amigas e viva experiências pelo Rio</title>
+    <link rel="icon" type="image/png" href="logoboramiga.png" />
+    <link rel="preload" as="image" href="imagem_topo.png" fetchpriority="high" />
+    <meta property="og:title" content="BoraMiga — Faça novas amigas e viva experiências pelo Rio" />
+    <meta
+      property="og:description"
+      content="Entre para a comunidade BoraMiga e conheça mulheres que querem sair mais, fazer novas amizades e viver experiências com companhia, acolhimento e pertencimento."
+    />
+    <meta property="og:image" content="imagem_topo.png" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,8 +30,8 @@
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "BoraMiga — Encontre amigas. Viva histórias.",
-        "description": "Encontros e clube para mulheres no Rio de Janeiro.",
+        "name": "BoraMiga — Faça novas amigas e viva experiências pelo Rio",
+        "description": "Comunidade de mulheres no Rio de Janeiro para novas amizades e experiências presenciais.",
         "publisher": { "@type": "Organization", "name": "BoraMiga" }
       }
     </script>
@@ -30,7 +40,7 @@
     <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
 
     <header class="site-header" id="topo">
-      <div class="site-header__inner">
+      <div class="site-header__inner container">
         <a href="#home" class="site-header__logo" aria-label="BoraMiga — início">
           <img
             class="site-header__logo-img"
@@ -42,7 +52,6 @@
             decoding="async"
           />
         </a>
-
         <button
           type="button"
           class="nav-toggle"
@@ -54,97 +63,87 @@
           <span class="nav-toggle__bar" aria-hidden="true"></span>
           <span class="nav-toggle__bar" aria-hidden="true"></span>
         </button>
-
         <nav class="site-header__nav" id="menu-principal" aria-label="Menu principal">
           <ul class="site-header__menu">
             <li><a class="nav-link" href="#home">Home</a></li>
-            <li><a class="nav-link" href="#quem-somos">Quem Somos</a></li>
-            <li><a class="nav-link" href="#clube">Clube BoraMiga</a></li>
-            <li><a class="nav-link" href="#contato">Contato</a></li>
+            <li><a class="nav-link" href="#por-que">Por quê</a></li>
+            <li><a class="nav-link" href="#como-funciona">Como funciona</a></li>
+            <li><a class="nav-link" href="#clube">Clube</a></li>
+            <li><a class="nav-link" href="#seguranca">Segurança</a></li>
+            <li><a class="nav-link" href="#faq">FAQ</a></li>
           </ul>
-          <a
-            class="btn btn--primary btn--compact site-header__cta"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSemzqqaFruc19tXW8_SysdtvssnpcKfm8qbLYy7Ahry-YtYEA/viewform"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Cadastrar
+          <a class="btn btn--primary btn--compact site-header__cta" data-link="waitlist" target="_blank" rel="noopener noreferrer">
+            Lista de espera
           </a>
         </nav>
       </div>
     </header>
 
     <main id="conteudo-principal">
-      <!-- HOME / HERO -->
+      <!-- HERO -->
       <section class="hero" id="home" aria-labelledby="hero-title">
-        <div class="hero__shell">
-          <div class="hero__grid">
-            <div class="hero__content" data-aos="fade-up" data-aos-duration="700">
+        <div class="container hero__grid">
+            <div class="hero__content" data-aos="fade-up">
               <h1 id="hero-title" class="hero__title">
-                <span class="hero__title-line">Encontre amigas.</span>
-                <span class="hero__title-line">Viva histórias.</span>
-              </h1>
-              <p class="hero__sub">
-                O BoraMiga junta mulheres que querem sair mais, conhecer lugares novos e ter companhia pra isso.
-              </p>
-              <div class="hero__actions">
-                <a
-                  class="btn btn--primary btn--large"
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSemzqqaFruc19tXW8_SysdtvssnpcKfm8qbLYy7Ahry-YtYEA/viewform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Quero me cadastrar
-                </a>
-                <a class="btn btn--outline btn--large" href="#quem-somos">Saiba mais</a>
-              </div>
-              <p class="hero__note">Em breve para Android e iOS · cadastro gratuito</p>
+              Faça novas amigas para sair, viver experiências e descobrir o Rio com mais leveza.
+            </h1>
+            <p class="hero__sub">
+              O BoraMiga conecta mulheres que querem criar novas amizades, participar de encontros e circular pela cidade
+              com mais companhia, acolhimento e pertencimento.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn--primary btn--large" data-link="waitlist" target="_blank" rel="noopener noreferrer">
+                Quero entrar na lista de espera
+              </a>
+              <a class="btn btn--outline btn--large" data-link="whatsapp" target="_blank" rel="noopener noreferrer">
+                Entrar no grupo VIP
+              </a>
             </div>
-            <figure class="hero__visual" data-aos="fade-left" data-aos-duration="800" data-aos-delay="120">
-              <img
-                src="imagem topo.png"
-                alt="Mulheres reunidas em encontro no Rio de Janeiro"
-                width="560"
-                height="640"
-                loading="eager"
-                decoding="async"
-              />
-            </figure>
           </div>
+          <figure class="hero__visual" data-aos="fade-left" data-aos-delay="100">
+            <img
+              src="imagem_topo.png"
+              alt="Mulheres reunidas em encontro no Rio de Janeiro"
+              width="560"
+              height="640"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </figure>
         </div>
       </section>
 
-      <!-- QUEM SOMOS -->
-      <section class="section section--about" id="quem-somos" aria-labelledby="about-title">
+      <!-- POR QUE EXISTE -->
+      <section class="section section--why" id="por-que" aria-labelledby="why-title">
         <div class="container">
-          <div class="about-grid">
-            <div class="about-grid__text" data-aos="fade-right" data-aos-duration="700">
-              <header class="section__head section__head--left">
-                <h2 id="about-title" class="section__title">Quem somos</h2>
-              </header>
-              <div class="about-copy">
+          <div class="why-grid">
+            <div class="why-grid__text" data-aos="fade-right">
+              <p class="eyebrow">Por que o BoraMiga existe?</p>
+              <h2 id="why-title" class="section__title section__title--left">
+                Você quer sair — mas falta companhia, rede ou segurança
+              </h2>
+              <div class="prose">
                 <p>
-                  Somos um coletivo de mulheres reais, com histórias e rotinas diferentes, que estavam cansadas das
-                  amigas que sempre furam e dos planos que nunca acontecem. Então decidimos criar aquilo que também
-                  sentíamos falta.
+                  Muitas mulheres querem sair mais, conhecer lugares novos e viver a cidade — mas adiam planos por não
+                  ter companhia, sentir insegurança ou não ter uma rede de apoio por perto.
                 </p>
                 <p>
-                  O BoraMiga conecta mulheres que querem fazer novas amizades, compartilhar experiências e viver mais
-                  momentos juntas. Aqui, nenhuma mulher precisa deixar de ir a um lugar por não ter companhia.
+                  Somos um coletivo de mulheres reais que estavam cansadas das amigas que sempre furam e dos planos que
+                  nunca acontecem. Por isso criamos o BoraMiga: para que nenhuma mulher precise deixar de ir a um lugar
+                  por não ter companhia.
                 </p>
                 <p>
-                  Mais do que um app, somos uma comunidade de conexão, liberdade e pertencimento.
-                </p>
-                <p class="about-copy__tagline">
-                  Porque tudo fica melhor quando tem uma amiga pra dizer:<br />
-                  <strong>“BoraMiga?”</strong>
+                  Mais do que um app em lançamento, somos uma comunidade de conexão, liberdade e pertencimento. Porque
+                  tudo fica melhor quando tem uma amiga pra dizer: <strong>“BoraMiga?”</strong>
                 </p>
               </div>
+              <a class="btn btn--ghost" href="#clube">Conhecer o Clube BoraMiga</a>
             </div>
-            <figure class="about-grid__media" data-aos="fade-left" data-aos-duration="700">
+            <figure class="why-grid__media" data-aos="fade-left">
               <img
-                src="imagem passeio.png"
-                alt="Amigas em passeio e descontração no Rio"
+                src="imagem_passeio.png"
+                alt="Amigas em passeio e descontração no Rio de Janeiro"
                 width="520"
                 height="580"
                 loading="lazy"
@@ -155,143 +154,150 @@
         </div>
       </section>
 
-      <!-- CLUBE BORAMIGA -->
-      <section class="section section--club" id="clube" aria-labelledby="club-title">
-        <div class="container">
-          <header class="club-intro" data-aos="fade-up">
-            <h2 id="club-title" class="club-intro__title">Entre para o Clube BoraMiga</h2>
-            <p class="club-intro__subtitle">
-              Entre para uma comunidade de mulheres que se divertem e fazem novas amizades!
-            </p>
-          </header>
-
-          <div class="club-experiences" data-aos="fade-up" data-aos-delay="80">
-            <h3 class="club-experiences__heading">
-              Passeios e experiências que já aconteceram no BoraMiga
-            </h3>
-            <ul class="club-experiences__list" role="list">
-              <li class="club-experiences__item">Karaokê temático anos 50</li>
-              <li class="club-experiences__item">Brunch com pintura em tela</li>
-              <li class="club-experiences__item">Passeio de lancha</li>
-              <li class="club-experiences__item">Passeio a cavalo</li>
-              <li class="club-experiences__item">Aula experimental de Golfe</li>
-              <li class="club-experiences__item">Picnic na Quinta da Boa Vista</li>
-              <li class="club-experiences__item">Picnic no Aterro do Flamengo</li>
-              <li class="club-experiences__item">Show da Shakira em Copacabana</li>
-              <li class="club-experiences__item">Show da Vanessa da Mata no Arpoador</li>
-              <li class="club-experiences__item">Feijoada com Samba</li>
-              <li class="club-experiences__item">Roda de Samba</li>
-              <li class="club-experiences__item">Barzinho na Lapa</li>
-              <li class="club-experiences__item">Praia</li>
-              <li class="club-experiences__item">Club Fazenda com Amigas</li>
-              <li class="club-experiences__item">Sítio com parque aquático</li>
-              <li class="club-experiences__item">Cinema</li>
-              <li class="club-experiences__item">Planetário da Gávea</li>
-              <li class="club-experiences__item">Parque das Ruínas</li>
-              <li class="club-experiences__item">Escadaria Selarón</li>
-              <li class="club-experiences__item">Centenária Confeitaria Colombo</li>
-              <li class="club-experiences__item">Restaurante Flutuante Rio</li>
-              <li class="club-experiences__item">Caminhada na Trilha da Urca</li>
-              <li class="club-experiences__item">Trilha no Pão de Açúcar</li>
-              <li class="club-experiences__item">Arraiá da Orquestra Sanfônica</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       <!-- COMO FUNCIONA -->
       <section class="section section--how" id="como-funciona" aria-labelledby="how-title">
         <div class="container">
           <header class="section__head" data-aos="fade-up">
+            <p class="eyebrow">Simples e acolhedor</p>
             <h2 id="how-title" class="section__title">Como funciona</h2>
-            <p class="section__lead">Três passos simples até você fazer parte da comunidade.</p>
+            <p class="section__lead">Três passos para fazer parte da comunidade.</p>
           </header>
-
-          <ol class="timeline" role="list" data-aos="fade-up" data-aos-delay="100">
-            <li class="timeline__item">
-              <div class="timeline__marker">
-                <span class="timeline__num">1</span>
-              </div>
-              <div class="timeline__body">
-                <h3 class="timeline__title">Cadastre-se</h3>
-                <p class="timeline__text">
-                  Clique em <strong>Cadastrar</strong> e preencha o formulário oficial. É rápido, gratuito e seguro.
-                </p>
-              </div>
-            </li>
-            <li class="timeline__item">
-              <div class="timeline__marker">
-                <span class="timeline__num">2</span>
-              </div>
-              <div class="timeline__body">
-                <h3 class="timeline__title">Entre no grupo VIP</h3>
-                <p class="timeline__text">
-                  Participe do WhatsApp para receber novidades dos encontros e conversar com outras miga's.
-                </p>
-              </div>
-            </li>
-            <li class="timeline__item">
-              <div class="timeline__marker">
-                <span class="timeline__num">3</span>
-              </div>
-              <div class="timeline__body">
-                <h3 class="timeline__title">Viva as experiências</h3>
-                <p class="timeline__text">
-                  Participe dos passeios do Clube e acompanhe o lançamento do app na App Store e Google Play.
-                </p>
-              </div>
-            </li>
-          </ol>
+          <div class="steps-grid" data-aos="fade-up" data-aos-delay="80">
+            <article class="step-card">
+              <span class="step-card__num" aria-hidden="true">1</span>
+              <h3 class="step-card__title">Cadastre-se</h3>
+              <p class="step-card__text">
+                Preencha o formulário da lista de espera. É rápido, gratuito e seguro.
+              </p>
+            </article>
+            <article class="step-card">
+              <span class="step-card__num" aria-hidden="true">2</span>
+              <h3 class="step-card__title">Entre no Grupo VIP</h3>
+              <p class="step-card__text">
+                Participe do WhatsApp para novidades dos encontros e conversar com outras miga's.
+              </p>
+            </article>
+            <article class="step-card">
+              <span class="step-card__num" aria-hidden="true">3</span>
+              <h3 class="step-card__title">Viva as Experiências</h3>
+              <p class="step-card__text">
+                Participe dos passeios do Clube e acompanhe o lançamento do app nas lojas.
+              </p>
+            </article>
+          </div>
         </div>
       </section>
 
-      <!-- CONTATO / CTA -->
-      <section class="section section--contact" id="contato" aria-labelledby="contact-title">
+      <!-- CLUBE / EXPERIÊNCIAS -->
+      <section class="section section--club" id="clube" aria-labelledby="club-title">
         <div class="container">
-          <div class="contact-panel" data-aos="fade-up">
-            <header class="section__head">
-              <h2 id="contact-title" class="section__title">Entre em contato</h2>
-              <p class="section__lead">
-                Dúvidas sobre encontros ou cadastro? Fale com a gente — estamos aqui para acolher.
-              </p>
-            </header>
-            <div class="contact-panel__actions">
-              <a
-                class="btn btn--primary btn--large"
-                href="https://docs.google.com/forms/d/e/1FAIpQLSemzqqaFruc19tXW8_SysdtvssnpcKfm8qbLYy7Ahry-YtYEA/viewform"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Cadastrar na lista de espera
+          <header class="section__head" data-aos="fade-up">
+            <p class="eyebrow">Clube BoraMiga</p>
+            <h2 id="club-title" class="section__title">Experiências que já aconteceram</h2>
+            <p class="section__lead">
+              Entre para uma comunidade de mulheres que se divertem, fazem novas amizades e exploram o Rio juntas.
+            </p>
+          </header>
+          <div id="experiences-root" class="exp-categories" data-aos="fade-up" data-aos-delay="80" aria-live="polite"></div>
+          <div class="section__cta-row" data-aos="fade-up">
+            <a class="btn btn--primary btn--large" data-link="waitlist" target="_blank" rel="noopener noreferrer">
+              Quero entrar na lista de espera
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEGURANÇA -->
+      <section class="section section--safety" id="seguranca" aria-labelledby="safety-title">
+        <div class="container">
+          <header class="section__head" data-aos="fade-up">
+            <p class="eyebrow">Confiança</p>
+            <h2 id="safety-title" class="section__title">Uma comunidade feita para acolher</h2>
+            <p class="section__lead">Segurança, respeito e cuidado em cada encontro.</p>
+          </header>
+          <div id="safety-root" class="safety-grid" data-aos="fade-up" data-aos-delay="80"></div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="section section--faq" id="faq" aria-labelledby="faq-title">
+        <div class="container container--narrow">
+          <header class="section__head" data-aos="fade-up">
+            <p class="eyebrow">Dúvidas frequentes</p>
+            <h2 id="faq-title" class="section__title">Perguntas e respostas</h2>
+          </header>
+          <div id="faq-root" class="faq-list" data-aos="fade-up" data-aos-delay="80"></div>
+        </div>
+      </section>
+
+      <!-- CTA FINAL -->
+      <section class="section section--cta-final" id="contato" aria-labelledby="cta-final-title">
+        <div class="container">
+          <div class="cta-panel" data-aos="zoom-in">
+            <h2 id="cta-final-title" class="cta-panel__title">Pronta para dizer BoraMiga?</h2>
+            <p class="cta-panel__text">
+              Entre na lista de espera e faça parte de uma comunidade que transforma vontade de sair em experiências
+              reais — com companhia, leveza e pertencimento.
+            </p>
+            <div class="cta-panel__actions">
+              <a class="btn btn--primary btn--large" data-link="waitlist" target="_blank" rel="noopener noreferrer">
+                Quero entrar na lista de espera
               </a>
-              <a
-                class="btn btn--outline btn--large link-icon"
-                href="https://chat.whatsapp.com/LXlHNxSX89a4h6RK5XPR08?mode=gi_t"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <svg class="link-icon__svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                  <path
-                    fill="currentColor"
-                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
-                  />
-                </svg>
-                Grupo VIP no WhatsApp
+              <a class="btn btn--outline btn--large" data-link="whatsapp" target="_blank" rel="noopener noreferrer">
+                Entrar no grupo VIP
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- APOIO -->
-      <section class="section section--partners" aria-label="Instituições de apoio">
+      <!-- APOIO INSTITUCIONAL -->
+      <section class="section section--partners" aria-label="Apoio institucional">
         <div class="container">
-          <p class="partners__label" data-aos="fade-up">Com o apoio de</p>
-          <div class="partners__grid" data-aos="fade-up" data-aos-delay="80">
+          <header class="section__head">
+            <p class="eyebrow">Apoio institucional</p>
+            <h2 class="section__title section__title--sm">Com o apoio de</h2>
+          </header>
+          <div class="partners__grid" data-aos="fade-up">
             <figure class="partners__item">
-              <img src="Apio.png" alt="Selo de apoio — Governo do RJ, FAPERJ e PISTA" width="480" height="120" loading="lazy" decoding="async" />
-              <figcaption class="visually-hidden">Governo do Estado do Rio de Janeiro, FAPERJ e PISTA</figcaption>
+              <img
+                src="Apio.png"
+                alt="Governo do Estado do Rio de Janeiro, FAPERJ e PISTA"
+                width="480"
+                height="120"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="visually-hidden">
+                Governo do Estado do Rio de Janeiro, FAPERJ e PISTA
+              </figcaption>
             </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA INSTAGRAM -->
+      <section class="section section--instagram" aria-labelledby="instagram-cta-title">
+        <div class="container">
+          <div class="instagram-cta" data-aos="fade-up">
+            <p id="instagram-cta-title" class="instagram-cta__text">
+              Quer acompanhar novidades, encontros e bastidores do BoraMiga?
+            </p>
+            <a
+              class="btn btn--instagram btn--large link-icon"
+              data-link="instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Acessar o Instagram oficial do BoraMiga"
+            >
+              <svg class="link-icon__svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  fill="currentColor"
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+              Seguir o BoraMiga no Instagram
+            </a>
           </div>
         </div>
       </section>
@@ -299,53 +305,33 @@
 
     <footer class="site-footer">
       <div class="container site-footer__grid">
-        <div class="site-footer__col" data-aos="fade-up">
-          <a href="#home" class="site-footer__logo">
-            <img src="logoboramiga.png" alt="BoraMiga" width="140" height="50" loading="lazy" decoding="async" />
-          </a>
-          <p class="site-footer__desc">
-            Encontre amigas, viva histórias e descubra o Rio de Janeiro com segurança, leveza e uma comunidade que
-            acolhe.
-          </p>
-        </div>
-
-        <div class="site-footer__col" data-aos="fade-up" data-aos-delay="60">
+        <div class="site-footer__col">
           <h3 class="site-footer__heading">Links rápidos</h3>
           <ul class="site-footer__links" role="list">
             <li><a href="#home">Home</a></li>
-            <li><a href="#quem-somos">Quem Somos</a></li>
+            <li><a href="#por-que">Por quê</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
             <li><a href="#clube">Clube BoraMiga</a></li>
-            <li><a href="#como-funciona">Como Funciona</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li><a href="#seguranca">Segurança</a></li>
+            <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
-
-        <div class="site-footer__col" data-aos="fade-up" data-aos-delay="120">
+        <div class="site-footer__col">
           <h3 class="site-footer__heading">Redes e contato</h3>
           <ul class="site-footer__links site-footer__links--social" role="list">
             <li>
-              <a
-                class="link-icon"
-                href="https://www.instagram.com/boramigaapp/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="link-icon" data-link="instagram" target="_blank" rel="noopener noreferrer">
                 <svg class="link-icon__svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path
                     fill="currentColor"
                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
                   />
                 </svg>
-                @boramigaapp
+                @boramiga.app
               </a>
             </li>
             <li>
-              <a
-                class="link-icon link-icon--wa"
-                href="https://chat.whatsapp.com/LXlHNxSX89a4h6RK5XPR08?mode=gi_t"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a class="link-icon" data-link="whatsapp" target="_blank" rel="noopener noreferrer">
                 <svg class="link-icon__svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path
                     fill="currentColor"
@@ -356,30 +342,30 @@
               </a>
             </li>
             <li>
-              <a class="link-icon" href="mailto:boramigaapp@gmail.com">
+              <a class="link-icon" data-link="email">
                 <svg class="link-icon__svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path
                     fill="currentColor"
                     d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
                   />
                 </svg>
-                boramigaapp@gmail.com
+                <span data-email-text>boramigaapp@gmail.com</span>
               </a>
             </li>
           </ul>
         </div>
       </div>
       <div class="site-footer__bottom">
-        <p>© BoraMiga — Todos os direitos reservados.</p>
+        <p>© <span id="footer-year"></span> BoraMiga — Todos os direitos reservados.</p>
       </div>
     </footer>
 
     <a
       class="whatsapp-float"
-      href="https://chat.whatsapp.com/LXlHNxSX89a4h6RK5XPR08?mode=gi_t"
+      data-link="whatsapp"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Falar no WhatsApp — Grupo VIP"
+      aria-label="Abrir grupo VIP do BoraMiga no WhatsApp"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path
@@ -389,7 +375,9 @@
       </svg>
     </a>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="config.js" defer></script>
+    <script src="data.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
     <script src="script.js" defer></script>
   </body>
 </html>
