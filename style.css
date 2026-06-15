@@ -498,12 +498,12 @@ body.nav-open .site-header__menu {
 
 .section--cta-final {
   background: var(--color-bg-alt);
-  padding-bottom: 5rem;
+  padding-bottom: 3rem;
 }
 
-.section--partners {
-  padding: 1.75rem 0 2rem;
-  background: var(--color-white);
+.section.section--partners {
+  padding: 1.5rem 0 2rem;
+  background: var(--color-bg);
 }
 
 /* ── Why grid ── */
@@ -851,23 +851,25 @@ body.nav-open .site-header__menu {
 }
 
 /* ── Partners ── */
-.partners__grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+.partners__card {
+  max-width: 624px;
+  margin: 0 auto;
+  padding: clamp(0.75rem, 2vw, 1.2rem) clamp(0.6rem, 2vw, 1.35rem);
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
-.partners__item {
+.partners__figure {
   margin: 0;
-  width: 100%;
   line-height: 0;
 }
 
-.partners__item img {
+.partners__figure img {
   display: block;
   width: 100%;
-  max-width: min(100%, 960px);
+  max-width: 100%;
   height: auto;
   margin-inline: auto;
   object-fit: contain;
