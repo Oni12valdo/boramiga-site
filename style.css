@@ -27,6 +27,11 @@
   --transition: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   --focus-ring: 3px solid var(--color-pink);
   --focus-offset: 3px;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 2.5rem;
 }
 
 /* ── Reset & base ── */
@@ -497,29 +502,43 @@ body.nav-open .site-header__menu {
 }
 
 .section--partners {
-  padding: 2.5rem 0 3rem;
+  padding: 2rem 0 1.25rem;
   background: var(--color-white);
 }
 
 /* ── CTA Instagram ── */
-.section--instagram {
-  padding: var(--space-2xl) 0;
-  background: linear-gradient(180deg, var(--color-white) 0%, var(--color-bg-alt) 100%);
+.section.section--instagram {
+  padding: 1.5rem 0 1.75rem;
+  background: linear-gradient(180deg, var(--color-white) 0%, var(--color-bg-alt) 70%);
 }
 
 .instagram-cta {
-  max-width: 36rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 32rem;
   margin: 0 auto;
   text-align: center;
-  padding: var(--space-xl) var(--space-lg);
+  padding: 1.35rem 1.5rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
 }
 
 .instagram-cta__text {
-  margin: 0 0 var(--space-lg);
-  font-size: var(--text-lg);
-  font-weight: 500;
-  color: var(--color-text-muted);
-  line-height: 1.55;
+  margin: 0 0 1rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+
+.instagram-cta__action {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .btn--instagram {
@@ -527,6 +546,7 @@ body.nav-open .site-header__menu {
   color: var(--color-white);
   border: 2px solid transparent;
   box-shadow: var(--shadow-sm);
+  min-height: 44px;
 }
 
 .btn--instagram:hover {
@@ -539,11 +559,19 @@ body.nav-open .site-header__menu {
   transform: scale(0.98);
 }
 
-@media (max-width: 767px) {
-  .instagram-cta .btn--instagram {
-    width: 100%;
-    max-width: 20rem;
-  }
+.btn--instagram:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.instagram-cta .btn--instagram {
+  width: 100%;
+  max-width: 22rem;
+}
+
+.instagram-cta .btn--instagram .link-icon__svg {
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 /* ── Why grid ── */
@@ -916,9 +944,14 @@ body.nav-open .site-header__menu {
 
 /* ── Footer ── */
 .site-footer {
-  background: linear-gradient(165deg, #5a4570 0%, #3d2f4d 50%, #2a2035 100%);
-  color: rgba(255, 255, 255, 0.9);
-  padding: 3rem 0 0;
+  background: linear-gradient(
+    165deg,
+    #6b4f82 0%,
+    #4a3560 45%,
+    #352848 100%
+  );
+  color: rgba(255, 255, 255, 0.92);
+  padding: 2.5rem 0 0;
 }
 
 .site-footer__grid {
@@ -927,11 +960,48 @@ body.nav-open .site-header__menu {
   padding-bottom: 2rem;
 }
 
+.site-footer__col--brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.site-footer__brand {
+  display: inline-block;
+  line-height: 0;
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.site-footer__brand:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--radius-sm);
+}
+
+.site-footer__logo {
+  display: block;
+  width: auto;
+  height: 2.5rem;
+  max-width: 130px;
+  object-fit: contain;
+}
+
+.site-footer__tagline {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 22rem;
+}
+
 .site-footer__heading {
-  font-size: 1rem;
+  font-size: 0.8125rem;
   font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   margin: 0 0 0.85rem;
-  color: var(--color-white);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .site-footer__links {
@@ -941,10 +1011,14 @@ body.nav-open .site-header__menu {
 }
 
 .site-footer__links li + li {
-  margin-top: 0.5rem;
+  margin-top: 0.55rem;
 }
 
 .site-footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.15rem 0;
   color: rgba(255, 255, 255, 0.88);
   font-size: 0.9rem;
   text-decoration: none;
@@ -952,7 +1026,13 @@ body.nav-open .site-header__menu {
 }
 
 .site-footer__links a:hover {
-  color: #ffc8e0;
+  color: #ffb8d4;
+}
+
+.site-footer__links a:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .site-footer__links--social a {
@@ -973,15 +1053,15 @@ body.nav-open .site-header__menu {
 }
 
 .site-footer__bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.25rem 1.35rem;
   text-align: center;
 }
 
 .site-footer__bottom p {
   margin: 0;
-  font-size: 0.85rem;
-  opacity: 0.7;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.55);
 }
 
 /* ── WhatsApp float ── */
@@ -1110,7 +1190,45 @@ body.nav-open .site-header__menu {
 
   .site-footer__grid {
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    gap: 2rem 2.5rem;
+    align-items: start;
+  }
+
+  .site-footer__col--brand {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 1.5rem;
+  }
+
+  .site-footer__tagline {
+    max-width: none;
+    flex: 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .site-footer__col--brand {
+    text-align: center;
+    align-items: center;
+  }
+
+  .site-footer__brand {
+    align-self: center;
+  }
+
+  .site-footer__tagline {
+    max-width: 20rem;
+  }
+
+  .site-footer__col {
+    text-align: center;
+  }
+
+  .site-footer__links a {
+    justify-content: center;
   }
 }
 
@@ -1131,5 +1249,24 @@ body.nav-open .site-header__menu {
 
   .hero__content {
     padding-right: 1rem;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .site-footer__col--brand {
+    grid-column: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .site-footer__tagline {
+    max-width: 22rem;
+    flex: none;
   }
 }
