@@ -1,12 +1,11 @@
 #!/usr/bin/env node
 /**
- * Minifica style.css -> style.min.css (comentários e espaços extras removidos).
+ * Minifica style.css -> style.min.css
  * Uso: node scripts/minify-css.mjs
- * Em produção, aponte index.html para style.min.css após rodar o build.
  */
 import { readFileSync, writeFileSync } from "fs";
+import { join, dirname } from "path";
 import { fileURLToPath } from "url";
-import { dirname, join } from "path";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const input = join(root, "style.css");

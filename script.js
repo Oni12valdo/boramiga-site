@@ -5,8 +5,12 @@
   var data = window.BoraMigaData || { experiences: [], safety: [], faq: [] };
 
   var navSectionIds = ["home", "por-que", "como-funciona", "clube", "seguranca", "faq"];
-  var headerOffset = 88;
   var scrollTicking = false;
+
+  function getScrollAnchorOffset() {
+    var header = document.querySelector(".site-header");
+    return header ? header.offsetHeight + 40 : 112;
+  }
 
   function initLinks() {
     var links = config.links;
@@ -40,16 +44,6 @@
 
     var html = data.experiences
       .map(function (cat) {
-        var body = cat.description
-          ? '<p class="exp-category__text">' + escapeHtml(cat.description) + "</p>"
-          : '<ul class="exp-chips" role="list">' +
-            cat.items
-              .map(function (item) {
-                return '<li class="exp-chip">' + escapeHtml(item) + "</li>";
-              })
-              .join("") +
-            "</ul>";
-
         return (
           '<article class="exp-category" id="exp-' +
           cat.id +
@@ -62,7 +56,9 @@
           escapeHtml(cat.title) +
           "</h3>" +
           "</div>" +
-          body +
+          '<p class="exp-category__text">' +
+          escapeHtml(cat.description || "") +
+          "</p>" +
           "</article>"
         );
       })
@@ -178,15 +174,19 @@
 
     e.preventDefault();
 
+    var focusTarget =
+      target.querySelector("h1, h2, .section__title, .mission__title, .partners__title") || target;
+
     if (targetId === "#home") {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+      var offset = getScrollAnchorOffset();
+      var top = focusTarget.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
     }
 
     history.pushState(null, "", targetId);
 
-    var focusTarget = target.querySelector("h1, h2, .section__title, .mission__title") || target;
     if (!focusTarget.hasAttribute("tabindex")) {
       focusTarget.setAttribute("tabindex", "-1");
     }
@@ -208,7 +208,7 @@
         .filter(Boolean);
 
       if (sections.length) {
-        var scrollPos = window.scrollY + headerOffset;
+        var scrollPos = window.scrollY + getScrollAnchorOffset();
         var currentId = sections[0].getAttribute("id");
 
         for (var i = sections.length - 1; i >= 0; i--) {
