@@ -318,32 +318,54 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
-  function initAOS() {
-    if (typeof AOS === "undefined") return;
+  function initReveal() {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!("IntersectionObserver" in window)) return;
 
-    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) return;
+    var elements = document.querySelectorAll("[data-aos]");
+    if (!elements.length) return;
 
-    var startAOS = function () {
-      AOS.init({
-        duration: 550,
-        easing: "ease-out-cubic",
-        once: true,
-        offset: 80,
-        delay: 0,
-        mirror: false,
-        anchorPlacement: "top-bottom",
-        disableMutationObserver: true,
-        throttleDelay: 99,
-        debounceDelay: 50
-      });
+    elements.forEach(function (el) {
+      var delay = el.getAttribute("data-aos-delay");
+      if (delay) {
+        el.style.setProperty("--reveal-delay", delay + "ms");
+      }
+    });
+
+    document.documentElement.classList.add("js-reveal-ready");
+
+    var reveal = function (el) {
+      el.classList.add("is-revealed");
     };
 
-    if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(startAOS, { timeout: 1200 });
-    } else {
-      window.setTimeout(startAOS, 200);
-    }
+    var observer = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            reveal(entry.target);
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, rootMargin: "0px 0px -80px 0px", threshold: 0.1 }
+    );
+
+    var viewportBottom = window.innerHeight - 80;
+
+    elements.forEach(function (el) {
+      var rect = el.getBoundingClientRect();
+      var inView = rect.top < viewportBottom && rect.bottom > 0;
+
+      if (inView) {
+        window.requestAnimationFrame(function () {
+          window.requestAnimationFrame(function () {
+            reveal(el);
+          });
+        });
+      } else {
+        observer.observe(el);
+      }
+    });
   }
 
   function initFooterYear() {
@@ -358,7 +380,7 @@
     renderFAQ();
     initDelegatedEvents();
     initScrollHandlers();
-    initAOS();
+    initReveal();
     initFooterYear();
   }
 

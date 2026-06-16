@@ -1558,3 +1558,38 @@ body.nav-open .site-header__menu {
     padding-right: 1rem;
   }
 }
+
+/* ── Scroll reveal (local, replaces AOS) ── */
+[data-aos] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js-reveal-ready [data-aos]:not(.is-revealed) {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition:
+      opacity 0.55s cubic-bezier(0.215, 0.61, 0.355, 1),
+      transform 0.55s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-delay: 0ms;
+  }
+
+  .js-reveal-ready [data-aos="fade-left"]:not(.is-revealed) {
+    transform: translate3d(24px, 0, 0);
+  }
+
+  .js-reveal-ready [data-aos="zoom-in"]:not(.is-revealed) {
+    transform: scale(0.96);
+  }
+
+  .js-reveal-ready [data-aos].is-revealed {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.55s cubic-bezier(0.215, 0.61, 0.355, 1),
+      transform 0.55s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+}
