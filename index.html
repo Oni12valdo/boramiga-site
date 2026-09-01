@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta
       name="description"
+      data-i18n-content="meta.description"
       content="BoraMiga é a comunidade para mulheres que querem fazer novas amigas, sair mais e viver experiências reais com companhia, acolhimento e pertencimento."
     />
     <meta name="robots" content="index, follow" />
@@ -111,23 +112,25 @@
         rel="stylesheet"
       />
     </noscript>
-    <meta property="og:title" content="BoraMiga — Comunidade para novas amigas e experiências reais" />
+    <meta property="og:title" data-i18n-content="meta.title" content="BoraMiga — Comunidade para novas amigas e experiências reais" />
     <meta
       property="og:description"
+      data-i18n-content="meta.description"
       content="BoraMiga é a comunidade para mulheres que querem fazer novas amigas, sair mais e viver experiências reais com companhia, acolhimento e pertencimento."
     />
     <meta property="og:url" content="https://boramiga.com.br/" />
-    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale" data-i18n-content="meta.ogLocale" content="pt_BR" />
     <meta property="og:image" content="https://boramiga.com.br/imagem_topo.png" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="BoraMiga — Encontre novas amigas e viva experiências reais" />
+    <meta name="twitter:title" data-i18n-content="meta.twitterTitle" content="BoraMiga — Encontre novas amigas e viva experiências reais" />
     <meta
       name="twitter:description"
+      data-i18n-content="meta.twitterDescription"
       content="Entre para a comunidade BoraMiga e conheça mulheres que querem sair mais, fazer novas amizades e viver experiências com companhia, acolhimento e pertencimento."
     />
     <meta name="twitter:image" content="https://boramiga.com.br/imagem_topo.png" />
-    <script type="application/ld+json">
+    <script id="structured-data" type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -148,11 +151,11 @@
     </script>
   </head>
   <body>
-    <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo</a>
+    <a class="skip-link" href="#conteudo-principal" data-i18n="accessibility.skip">Pular para o conteúdo</a>
 
     <header class="site-header" id="topo">
       <div class="site-header__inner container">
-        <a href="#home" class="site-header__logo" aria-label="BoraMiga — início">
+        <a href="#home" class="site-header__logo" aria-label="BoraMiga — início" data-i18n-aria-label="accessibility.home">
           <picture>
             <source type="image/webp" srcset="logoboramiga-logo.webp" />
             <img
@@ -166,25 +169,49 @@
             />
           </picture>
         </a>
-        <button
-          type="button"
-          class="nav-toggle"
-          aria-expanded="false"
-          aria-controls="menu-principal"
-          aria-label="Abrir menu de navegação"
-        >
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
-          <span class="nav-toggle__bar" aria-hidden="true"></span>
-        </button>
-        <nav class="site-header__nav" id="menu-principal" aria-label="Menu principal">
+        <div class="site-header__controls">
+          <div class="language-switcher" role="group" aria-label="Selecionar idioma" data-i18n-aria-label="accessibility.languageSelector">
+            <button
+              type="button"
+              class="language-switcher__option is-active"
+              data-language="pt-BR"
+              lang="pt-BR"
+              aria-pressed="true"
+              aria-label="Português do Brasil"
+              data-i18n-aria-label="accessibility.portuguese"
+            >PT</button>
+            <span class="language-switcher__separator" aria-hidden="true">|</span>
+            <button
+              type="button"
+              class="language-switcher__option"
+              data-language="en"
+              lang="en"
+              aria-pressed="false"
+              aria-label="Inglês"
+              data-i18n-aria-label="accessibility.english"
+            >EN</button>
+          </div>
+          <button
+            type="button"
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="menu-principal"
+            aria-label="Abrir menu de navegação"
+            data-i18n-aria-label="accessibility.openNav"
+          >
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+            <span class="nav-toggle__bar" aria-hidden="true"></span>
+          </button>
+        </div>
+        <nav class="site-header__nav" id="menu-principal" aria-label="Menu principal" data-i18n-aria-label="accessibility.nav">
           <ul class="site-header__menu">
-            <li><a class="nav-link" href="#home">Home</a></li>
-            <li><a class="nav-link" href="#por-que">Por quê</a></li>
-            <li><a class="nav-link" href="#como-funciona">Como funciona</a></li>
-            <li><a class="nav-link" href="#clube">Clube</a></li>
-            <li><a class="nav-link" href="#seguranca">Segurança</a></li>
-            <li><a class="nav-link" href="#faq">FAQ</a></li>
+            <li><a class="nav-link" href="#home" data-i18n="nav.home">Home</a></li>
+            <li><a class="nav-link" href="#por-que" data-i18n="nav.why">Por quê</a></li>
+            <li><a class="nav-link" href="#como-funciona" data-i18n="nav.how">Como funciona</a></li>
+            <li><a class="nav-link" href="#clube" data-i18n="nav.club">Clube</a></li>
+            <li><a class="nav-link" href="#seguranca" data-i18n="nav.safety">Segurança</a></li>
+            <li><a class="nav-link" href="#faq" data-i18n="nav.faq">FAQ</a></li>
           </ul>
           <a
             class="btn btn--primary btn--compact site-header__cta"
@@ -192,6 +219,8 @@
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Entrar na lista de espera do BoraMiga"
+            data-i18n-aria-label="accessibility.waitlist"
+            data-i18n="nav.waitlist"
           >
             Lista de espera
           </a>
@@ -205,10 +234,10 @@
         <div class="container hero__grid">
             <div class="hero__content" data-aos="fade-up">
               <h1 id="hero-title" class="hero__title hero__title--display">
-                Encontre novas amigas, viva experiências reais<br class="hero__br" aria-hidden="true" />
-                e descubra que todo lugar pode ser mais leve com companhia.
+                <span data-i18n="hero.titleLead">Encontre novas amigas, viva experiências reais</span><br class="hero__br" aria-hidden="true" />
+                <span data-i18n="hero.titleEnd">e descubra que todo lugar pode ser mais leve com companhia.</span>
               </h1>
-              <p class="hero__sub">
+              <p class="hero__sub" data-i18n="hero.subtitle">
                 Comunidade para mulheres que querem sair mais, fazer novas amizades e viver momentos compartilhados com
                 acolhimento e pertencimento.
               </p>
@@ -219,6 +248,8 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Entrar na lista de espera do BoraMiga"
+                  data-i18n-aria-label="accessibility.waitlist"
+                  data-i18n="hero.waitlist"
                 >
                   Quero entrar na lista de espera
                 </a>
@@ -228,6 +259,8 @@
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Entrar no grupo VIP do BoraMiga no WhatsApp"
+                  data-i18n-aria-label="accessibility.whatsapp"
+                  data-i18n="hero.vip"
                 >
                   Entrar no grupo VIP
                 </a>
@@ -247,6 +280,7 @@
               <img
                 src="imagem_topo.png"
                 alt="Mulheres reunidas em encontro acolhedor"
+                data-i18n-alt="accessibility.heroImage"
                 width="560"
                 height="315"
                 loading="eager"
@@ -262,8 +296,8 @@
       <section class="section section--mission" id="por-que" aria-labelledby="why-title">
         <div class="container">
           <div class="mission" data-aos="fade-up">
-            <h2 id="why-title" class="mission__title">Por que o BoraMiga existe</h2>
-            <p class="mission__text">
+            <h2 id="why-title" class="mission__title" data-i18n="mission.title">Por que o BoraMiga existe</h2>
+            <p class="mission__text" data-i18n="mission.text">
               Muitas mulheres querem sair, conhecer novos lugares e viver novas experiências, mas nem sempre têm
               companhia, convite ou uma rede de apoio por perto. O BoraMiga nasce para aproximar mulheres que desejam
               transformar planos em encontros reais, criando conexões com mais leveza, acolhimento e pertencimento.
@@ -283,6 +317,7 @@
               <img
                 src="imagem_passeio.png"
                 alt="Amigas em passeio e descontração ao ar livre"
+                data-i18n-alt="accessibility.outingImage"
                 width="920"
                 height="518"
                 loading="lazy"
@@ -297,28 +332,28 @@
       <section class="section section--purpose" id="proposito" aria-labelledby="purpose-title">
         <div class="container">
           <header class="section__head" data-aos="fade-up">
-            <p class="eyebrow">Nossa proposta</p>
-            <h2 id="purpose-title" class="section__title">Mais do que sair é pertencer</h2>
+            <p class="eyebrow" data-i18n="purpose.eyebrow">Nossa proposta</p>
+            <h2 id="purpose-title" class="section__title" data-i18n="purpose.title">Mais do que sair é pertencer</h2>
           </header>
           <div class="purpose-grid" data-aos="fade-up" data-aos-delay="80">
             <article class="purpose-card">
               <span class="purpose-card__icon" aria-hidden="true">💜</span>
-              <h3 class="purpose-card__title">Amizade real</h3>
-              <p class="purpose-card__text">
+              <h3 class="purpose-card__title" data-i18n="purpose.friendshipTitle">Amizade real</h3>
+              <p class="purpose-card__text" data-i18n="purpose.friendshipText">
                 Conexões que saem da tela e podem virar encontros, histórias e novas redes de apoio.
               </p>
             </article>
             <article class="purpose-card">
               <span class="purpose-card__icon" aria-hidden="true">✨</span>
-              <h3 class="purpose-card__title">Experiências com companhia</h3>
-              <p class="purpose-card__text">
+              <h3 class="purpose-card__title" data-i18n="purpose.experiencesTitle">Experiências com companhia</h3>
+              <p class="purpose-card__text" data-i18n="purpose.experiencesText">
                 Passeios, eventos, encontros e momentos pensados para mulheres que querem viver mais.
               </p>
             </article>
             <article class="purpose-card">
               <span class="purpose-card__icon" aria-hidden="true">🤗</span>
-              <h3 class="purpose-card__title">Acolhimento e pertencimento</h3>
-              <p class="purpose-card__text">
+              <h3 class="purpose-card__title" data-i18n="purpose.belongingTitle">Acolhimento e pertencimento</h3>
+              <p class="purpose-card__text" data-i18n="purpose.belongingText">
                 Uma comunidade feita para que cada mulher se sinta recebida, respeitada e acompanhada.
               </p>
             </article>
@@ -330,29 +365,29 @@
       <section class="section section--how" id="como-funciona" aria-labelledby="how-title">
         <div class="container">
           <header class="section__head" data-aos="fade-up">
-            <p class="eyebrow">Simples e acolhedor</p>
-            <h2 id="how-title" class="section__title">Como funciona</h2>
-            <p class="section__lead">Três passos para fazer parte da comunidade.</p>
+            <p class="eyebrow" data-i18n="how.eyebrow">Simples e acolhedor</p>
+            <h2 id="how-title" class="section__title" data-i18n="how.title">Como funciona</h2>
+            <p class="section__lead" data-i18n="how.lead">Três passos para fazer parte da comunidade.</p>
           </header>
           <div class="steps-grid" data-aos="fade-up" data-aos-delay="80">
             <article class="step-card">
               <span class="step-card__num" aria-hidden="true">1</span>
-              <h3 class="step-card__title">Cadastre-se</h3>
-              <p class="step-card__text">
+              <h3 class="step-card__title" data-i18n="how.signupTitle">Cadastre-se</h3>
+              <p class="step-card__text" data-i18n="how.signupText">
                 Preencha o formulário da lista de espera. É rápido, gratuito e simples.
               </p>
             </article>
             <article class="step-card">
               <span class="step-card__num" aria-hidden="true">2</span>
-              <h3 class="step-card__title">Entre no grupo VIP</h3>
-              <p class="step-card__text">
+              <h3 class="step-card__title" data-i18n="how.vipTitle">Entre no grupo VIP</h3>
+              <p class="step-card__text" data-i18n="how.vipText">
                 Participe do WhatsApp para receber novidades dos encontros e conversar com outras amigas.
               </p>
             </article>
             <article class="step-card">
               <span class="step-card__num" aria-hidden="true">3</span>
-              <h3 class="step-card__title">Viva as experiências</h3>
-              <p class="step-card__text">
+              <h3 class="step-card__title" data-i18n="how.liveTitle">Viva as experiências</h3>
+              <p class="step-card__text" data-i18n="how.liveText">
                 Participe dos passeios do Clube e acompanhe o lançamento do app nas lojas.
               </p>
             </article>
@@ -364,13 +399,13 @@
       <section class="section section--club" id="clube" aria-labelledby="club-title">
         <div class="container">
           <header class="section__head" data-aos="fade-up">
-            <p class="eyebrow">Clube BoraMiga</p>
-            <h2 id="club-title" class="section__title">Experiências que conectam</h2>
-            <p class="section__lead">
+            <p class="eyebrow" data-i18n="club.eyebrow">Clube BoraMiga</p>
+            <h2 id="club-title" class="section__title" data-i18n="club.title">Experiências que conectam</h2>
+            <p class="section__lead" data-i18n="club.lead">
               O Clube BoraMiga reúne vivências por tema para você descobrir encontros e explorar novos lugares juntas.
             </p>
           </header>
-          <p class="club-intro" data-aos="fade-up" data-aos-delay="60">
+          <p class="club-intro" data-aos="fade-up" data-aos-delay="60" data-i18n="club.intro">
             O Clube BoraMiga é o coração da nossa comunidade. Organizamos encontros presenciais pensados para que você
             saia da rotina e crie conexões reais com facilidade.
           </p>
@@ -382,6 +417,8 @@
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Entrar na lista de espera do BoraMiga"
+              data-i18n-aria-label="accessibility.waitlist"
+              data-i18n="hero.waitlist"
             >
               Quero entrar na lista de espera
             </a>
@@ -393,9 +430,9 @@
       <section class="section section--safety" id="seguranca" aria-labelledby="safety-title">
         <div class="container">
           <header class="section__head" data-aos="fade-up">
-            <p class="eyebrow">Confiança, acolhimento e cuidado</p>
-            <h2 id="safety-title" class="section__title">Uma comunidade feita com cuidado</h2>
-            <p class="section__lead">
+            <p class="eyebrow" data-i18n="safety.eyebrow">Confiança, acolhimento e cuidado</p>
+            <h2 id="safety-title" class="section__title" data-i18n="safety.title">Uma comunidade feita com cuidado</h2>
+            <p class="section__lead" data-i18n="safety.lead">
               O BoraMiga vai além de combinar planos: é pertencer a uma rede com escuta, respeito e propósito.
             </p>
           </header>
@@ -407,8 +444,8 @@
       <section class="section section--faq" id="faq" aria-labelledby="faq-title">
         <div class="container container--narrow">
           <header class="section__head" data-aos="fade-up">
-            <p class="eyebrow">Dúvidas frequentes</p>
-            <h2 id="faq-title" class="section__title">Perguntas e respostas</h2>
+            <p class="eyebrow" data-i18n="faq.eyebrow">Dúvidas frequentes</p>
+            <h2 id="faq-title" class="section__title" data-i18n="faq.title">Perguntas e respostas</h2>
           </header>
           <div id="faq-root" class="faq-list" data-aos="fade-up" data-aos-delay="80"></div>
         </div>
@@ -418,8 +455,8 @@
       <section class="section section--cta-final" id="contato" aria-labelledby="cta-final-title">
         <div class="container">
           <div class="cta-panel" data-aos="zoom-in">
-            <h2 id="cta-final-title" class="cta-panel__title">Pronta para fazer parte do BoraMiga?</h2>
-            <p class="cta-panel__text">
+            <h2 id="cta-final-title" class="cta-panel__title" data-i18n="finalCta.title">Pronta para fazer parte do BoraMiga?</h2>
+            <p class="cta-panel__text" data-i18n="finalCta.text">
               Entre na lista de espera e faça parte de uma comunidade que transforma vontade de sair em experiências
               reais, com companhia, leveza e pertencimento.
             </p>
@@ -430,6 +467,8 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Entrar na lista de espera do BoraMiga"
+                data-i18n-aria-label="accessibility.waitlist"
+                data-i18n="hero.waitlist"
               >
                 Quero entrar na lista de espera
               </a>
@@ -439,6 +478,8 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Entrar no grupo VIP do BoraMiga no WhatsApp"
+                data-i18n-aria-label="accessibility.whatsapp"
+                data-i18n="hero.vip"
               >
                 Entrar no grupo VIP
               </a>
@@ -451,8 +492,8 @@
       <section class="section section--partners" id="apoio" aria-labelledby="partners-title">
         <div class="container">
           <header class="partners__head" data-aos="fade-up">
-            <h2 id="partners-title" class="partners__title">Apoio institucional</h2>
-            <p class="partners__lead">
+            <h2 id="partners-title" class="partners__title" data-i18n="partners.title">Apoio institucional</h2>
+            <p class="partners__lead" data-i18n="partners.lead">
               Instituições e iniciativas que fortalecem a construção do BoraMiga.
             </p>
           </header>
@@ -467,13 +508,14 @@
                 <img
                   src="Apio.png"
                   alt="Logos dos apoiadores: PNUD, Governo do Estado do Rio de Janeiro, FAPERJ, FAETEC, Programa PISTA, Divas do Lucro, APMEA e Explorando com Iris"
+                  data-i18n-alt="accessibility.partnersImage"
                   width="1600"
                   height="284"
                   loading="lazy"
                   decoding="async"
                 />
               </picture>
-              <figcaption class="visually-hidden">
+              <figcaption class="visually-hidden" data-i18n="accessibility.partnersCaption">
                 PNUD, Governo do Estado do Rio de Janeiro, FAPERJ, FAETEC, Programa PISTA, Divas do Lucro, APMEA e
                 Explorando com Iris
               </figcaption>
@@ -486,7 +528,7 @@
     <footer class="site-footer">
       <div class="container site-footer__grid">
         <div class="site-footer__col site-footer__col--brand">
-          <a href="#home" class="site-footer__brand" aria-label="Voltar ao topo — BoraMiga">
+          <a href="#home" class="site-footer__brand" aria-label="Voltar ao topo — BoraMiga" data-i18n-aria-label="accessibility.backToTop">
             <picture>
               <source type="image/webp" srcset="logoboramiga-logo.webp" />
               <img
@@ -500,23 +542,23 @@
               />
             </picture>
           </a>
-          <p class="site-footer__tagline">
+          <p class="site-footer__tagline" data-i18n="footer.tagline">
             Viva novas experiências com cuidado, leveza e uma comunidade que acolhe.
           </p>
         </div>
         <div class="site-footer__col">
-          <h3 class="site-footer__heading">Links rápidos</h3>
+          <h3 class="site-footer__heading" data-i18n="footer.quickLinks">Links rápidos</h3>
           <ul class="site-footer__links" role="list">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#por-que">Por quê</a></li>
-            <li><a href="#como-funciona">Como funciona</a></li>
-            <li><a href="#clube">Clube BoraMiga</a></li>
-            <li><a href="#seguranca">Segurança</a></li>
-            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#home" data-i18n="nav.home">Home</a></li>
+            <li><a href="#por-que" data-i18n="nav.why">Por quê</a></li>
+            <li><a href="#como-funciona" data-i18n="nav.how">Como funciona</a></li>
+            <li><a href="#clube" data-i18n="footer.club">Clube BoraMiga</a></li>
+            <li><a href="#seguranca" data-i18n="nav.safety">Segurança</a></li>
+            <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
           </ul>
         </div>
         <div class="site-footer__col">
-          <h3 class="site-footer__heading">Redes e contato</h3>
+          <h3 class="site-footer__heading" data-i18n="footer.social">Redes e contato</h3>
           <ul class="site-footer__links site-footer__links--social" role="list">
             <li>
               <a
@@ -543,6 +585,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Abrir grupo VIP do BoraMiga no WhatsApp"
+                data-i18n-aria-label="accessibility.openWhatsapp"
               >
                 <svg class="link-icon__svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path
@@ -550,11 +593,11 @@
                     d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
                   />
                 </svg>
-                Grupo VIP WhatsApp
+                <span data-i18n="footer.whatsapp">Grupo VIP WhatsApp</span>
               </a>
             </li>
             <li>
-              <a class="link-icon" data-link="email" aria-label="Enviar e-mail para o BoraMiga">
+              <a class="link-icon" data-link="email" aria-label="Enviar e-mail para o BoraMiga" data-i18n-aria-label="accessibility.email">
                 <svg class="link-icon__svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                   <path
                     fill="currentColor"
@@ -568,7 +611,7 @@
         </div>
       </div>
       <div class="site-footer__bottom">
-        <p>© <span id="footer-year"></span> BoraMiga — Todos os direitos reservados.</p>
+        <p>© <span id="footer-year"></span> BoraMiga — <span data-i18n="footer.rights">Todos os direitos reservados.</span></p>
       </div>
     </footer>
 
@@ -578,6 +621,7 @@
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Abrir grupo VIP do BoraMiga no WhatsApp"
+      data-i18n-aria-label="accessibility.openWhatsapp"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <path

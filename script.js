@@ -2,10 +2,96 @@
   "use strict";
 
   var config = window.BoraMigaConfig || { links: {} };
-  var data = window.BoraMigaData || { experiences: [], safety: [], faq: [] };
+  var dataByLanguage = window.BoraMigaData || {};
+  var translations = window.BoraMigaTranslations || {};
+  var defaultLanguage = "pt-BR";
+  var storageKey = "boramiga-language";
+  var currentLanguage = defaultLanguage;
 
   var navSectionIds = ["home", "por-que", "como-funciona", "clube", "seguranca", "faq"];
   var scrollTicking = false;
+
+  function getTranslation(key) {
+    var source = translations[currentLanguage] || translations[defaultLanguage] || {};
+    return key.split(".").reduce(function (value, part) {
+      return value && Object.prototype.hasOwnProperty.call(value, part) ? value[part] : undefined;
+    }, source);
+  }
+
+  function getCurrentData() {
+    return dataByLanguage[currentLanguage] || dataByLanguage[defaultLanguage] || {
+      experiences: [],
+      safety: [],
+      faq: []
+    };
+  }
+
+  function getSavedLanguage() {
+    try {
+      var saved = window.localStorage.getItem(storageKey);
+      return Object.prototype.hasOwnProperty.call(translations, saved) ? saved : defaultLanguage;
+    } catch (error) {
+      return defaultLanguage;
+    }
+  }
+
+  function saveLanguage(language) {
+    try {
+      window.localStorage.setItem(storageKey, language);
+    } catch (error) {
+      // The language still changes when storage is unavailable.
+    }
+  }
+
+  function updateStructuredData() {
+    var element = document.getElementById("structured-data");
+    if (!element) return;
+
+    try {
+      var structuredData = JSON.parse(element.textContent);
+      structuredData.name = getTranslation("meta.structuredName");
+      structuredData.description = getTranslation("meta.structuredDescription");
+      structuredData.inLanguage = currentLanguage;
+      element.textContent = JSON.stringify(structuredData);
+    } catch (error) {
+      // Keep the valid Portuguese fallback if the embedded data cannot be parsed.
+    }
+  }
+
+  function translateDocument() {
+    document.documentElement.setAttribute("lang", currentLanguage);
+
+    var title = getTranslation("meta.title");
+    if (title) document.title = title;
+
+    document.querySelectorAll("[data-i18n]").forEach(function (element) {
+      var value = getTranslation(element.getAttribute("data-i18n"));
+      if (typeof value === "string") element.textContent = value;
+    });
+
+    [
+      ["data-i18n-content", "content"],
+      ["data-i18n-aria-label", "aria-label"],
+      ["data-i18n-alt", "alt"],
+      ["data-i18n-placeholder", "placeholder"],
+      ["data-i18n-title", "title"]
+    ].forEach(function (mapping) {
+      document.querySelectorAll("[" + mapping[0] + "]").forEach(function (element) {
+        var value = getTranslation(element.getAttribute(mapping[0]));
+        if (typeof value === "string") element.setAttribute(mapping[1], value);
+      });
+    });
+
+    updateStructuredData();
+  }
+
+  function updateLanguageSwitcher() {
+    document.querySelectorAll("[data-language]").forEach(function (button) {
+      var isActive = button.getAttribute("data-language") === currentLanguage;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+  }
 
   function getScrollAnchorOffset() {
     var header = document.querySelector(".site-header");
@@ -36,6 +122,7 @@
 
   function renderExperiences() {
     var root = document.getElementById("experiences-root");
+    var data = getCurrentData();
     if (!root || !data.experiences.length) return;
 
     var noteHtml = data.experiencesNote
@@ -69,6 +156,7 @@
 
   function renderSafety() {
     var root = document.getElementById("safety-root");
+    var data = getCurrentData();
     if (!root || !data.safety.length) return;
 
     root.innerHTML = data.safety
@@ -90,8 +178,9 @@
       .join("");
   }
 
-  function renderFAQ() {
+  function renderFAQ(openIndex) {
     var root = document.getElementById("faq-root");
+    var data = getCurrentData();
     if (!root || !data.faq.length) return;
 
     root.innerHTML = data.faq
@@ -123,6 +212,42 @@
         );
       })
       .join("");
+
+    if (typeof openIndex === "number" && openIndex >= 0) {
+      var button = document.getElementById("faq-question-" + openIndex);
+      var item = button && button.closest(".faq-item");
+      var panel = item && item.querySelector(".faq-item__panel");
+      if (button && item && panel) {
+        item.classList.add("is-open");
+        button.setAttribute("aria-expanded", "true");
+        panel.hidden = false;
+      }
+    }
+  }
+
+  function setLanguage(language, persist) {
+    if (!Object.prototype.hasOwnProperty.call(translations, language)) return;
+
+    var openButton = document.querySelector('.faq-item__btn[aria-expanded="true"]');
+    var openIndex = openButton ? Number(openButton.id.replace("faq-question-", "")) : -1;
+
+    currentLanguage = language;
+    translateDocument();
+    renderExperiences();
+    renderSafety();
+    renderFAQ(openIndex);
+    updateLanguageSwitcher();
+
+    var toggle = document.querySelector(".nav-toggle");
+    if (toggle) {
+      var isOpen = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute(
+        "aria-label",
+        getTranslation(isOpen ? "accessibility.closeNav" : "accessibility.openNav")
+      );
+    }
+
+    if (persist) saveLanguage(language);
   }
 
   function toggleFAQ(btn) {
@@ -162,7 +287,7 @@
     var toggle = document.querySelector(".nav-toggle");
     if (!toggle) return;
     toggle.setAttribute("aria-expanded", "false");
-    toggle.setAttribute("aria-label", "Abrir menu de navegação");
+    toggle.setAttribute("aria-label", getTranslation("accessibility.openNav"));
     document.body.classList.remove("nav-open");
   }
 
@@ -254,6 +379,12 @@
           return;
         }
 
+        var languageButton = e.target.closest("[data-language]");
+        if (languageButton) {
+          setLanguage(languageButton.getAttribute("data-language"), true);
+          return;
+        }
+
         var anchor = e.target.closest('a[href^="#"]');
         if (anchor) {
           handleAnchorClick(anchor, e);
@@ -279,6 +410,25 @@
           return;
         }
 
+        var languageButton = e.target.closest("[data-language]");
+        if (
+          languageButton &&
+          (e.key === "ArrowLeft" || e.key === "ArrowRight" || e.key === "Home" || e.key === "End")
+        ) {
+          e.preventDefault();
+          var buttons = Array.prototype.slice.call(document.querySelectorAll("[data-language]"));
+          var currentIndex = buttons.indexOf(languageButton);
+          var nextIndex = e.key === "ArrowLeft" || e.key === "Home" ? 0 : buttons.length - 1;
+          if (e.key === "ArrowLeft" && currentIndex > 0) nextIndex = currentIndex - 1;
+          if (e.key === "ArrowRight" && currentIndex < buttons.length - 1) nextIndex = currentIndex + 1;
+          var nextButton = buttons[nextIndex];
+          if (nextButton) {
+            setLanguage(nextButton.getAttribute("data-language"), true);
+            nextButton.focus();
+          }
+          return;
+        }
+
         if (e.key !== "Enter" && e.key !== " ") return;
 
         var faqBtn = faqRoot && e.target.closest(".faq-item__btn");
@@ -297,7 +447,7 @@
         toggle.setAttribute("aria-expanded", nextOpen ? "true" : "false");
         toggle.setAttribute(
           "aria-label",
-          nextOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"
+          getTranslation(nextOpen ? "accessibility.closeNav" : "accessibility.openNav")
         );
         document.body.classList.toggle("nav-open", nextOpen);
       });
@@ -375,9 +525,7 @@
 
   function init() {
     initLinks();
-    renderExperiences();
-    renderSafety();
-    renderFAQ();
+    setLanguage(getSavedLanguage(), false);
     initDelegatedEvents();
     initScrollHandlers();
     initReveal();
