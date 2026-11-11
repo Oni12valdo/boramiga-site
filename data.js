@@ -25,8 +25,9 @@ window.BoraMigaTranslations = {
       email: "Enviar e-mail para o BoraMiga",
       heroImage: "Mulheres reunidas em encontro acolhedor",
       outingImage: "Amigas em passeio e descontração ao ar livre",
-      partnersImage: "Logos dos apoiadores: PNUD, Governo do Estado do Rio de Janeiro, FAPERJ, FAETEC, Programa PISTA, Divas do Lucro, APMEA e Explorando com Iris",
-      partnersCaption: "PNUD, Governo do Estado do Rio de Janeiro, FAPERJ, FAETEC, Programa PISTA, Divas do Lucro, APMEA e Explorando com Iris"
+      partnersScroll: "Deslize horizontalmente para visualizar todos os logotipos das instituições apoiadoras",
+      partnersImage: "Logotipos das instituições apoiadoras do BoraMiga",
+      partnersCaption: "Programa PISTA, FAETEC, FAPERJ, Secretaria de Ciência, Tecnologia e Inovação, Secretaria de Ambiente e Sustentabilidade e Governo do Estado do Rio de Janeiro"
     },
     nav: { home: "Home", why: "Por quê", how: "Como funciona", club: "Clube", safety: "Segurança", faq: "FAQ", waitlist: "Lista de espera" },
     hero: {
@@ -113,8 +114,9 @@ window.BoraMigaTranslations = {
       email: "Email BoraMiga",
       heroImage: "Women gathered in a warm and welcoming setting",
       outingImage: "Friends enjoying a relaxed day out together",
-      partnersImage: "Supporter logos: UNDP, Government of the State of Rio de Janeiro, FAPERJ, FAETEC, PISTA Program, Divas do Lucro, APMEA, and Explorando com Iris",
-      partnersCaption: "UNDP, Government of the State of Rio de Janeiro, FAPERJ, FAETEC, PISTA Program, Divas do Lucro, APMEA, and Explorando com Iris"
+      partnersScroll: "Scroll horizontally to view all supporting institution logos",
+      partnersImage: "Logos of the institutions supporting BoraMiga",
+      partnersCaption: "Programa PISTA, FAETEC, FAPERJ, Secretaria de Ciência, Tecnologia e Inovação, Secretaria de Ambiente e Sustentabilidade, and Governo do Estado do Rio de Janeiro"
     },
     nav: { home: "Home", why: "Why", how: "How it works", club: "Club", safety: "Safety", faq: "FAQ", waitlist: "Join the waitlist" },
     hero: {

@@ -18,7 +18,7 @@
     <link rel="preload" as="image" type="image/webp" fetchpriority="high"
       imagesrcset="imagem_topo-480.webp 480w, imagem_topo-768.webp 768w, imagem_topo-1200.webp 1200w"
       imagesizes="(max-width: 767px) calc(100vw - 2.5rem), (max-width: 1023px) 50vw, 560px" />
-    <link rel="preload" href="style.min.css?v=a2b844e" as="style" />
+    <link rel="preload" href="style.min.css?v=20261111-apoio" as="style" />
     <style>
       :root {
         --color-bg: #fff0f5;
@@ -99,7 +99,7 @@
         margin: 0 0 1rem;
       }
     </style>
-    <link rel="stylesheet" href="style.min.css?v=a2b844e" />
+    <link rel="stylesheet" href="style.min.css?v=20261111-apoio" />
     <link
       rel="preload"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
@@ -499,25 +499,33 @@
           </header>
           <div class="partners__card" data-aos="fade-up" data-aos-delay="60">
             <figure class="partners__figure">
-              <picture>
-                <source
-                  type="image/webp"
-                  srcset="Apio-480.webp 480w, Apio-768.webp 768w, Apio.webp 1600w"
-                  sizes="(max-width: 767px) calc(100vw - 2.5rem), 624px"
-                />
-                <img
-                  src="Apio.png"
-                  alt="Logos dos apoiadores: PNUD, Governo do Estado do Rio de Janeiro, FAPERJ, FAETEC, Programa PISTA, Divas do Lucro, APMEA e Explorando com Iris"
-                  data-i18n-alt="accessibility.partnersImage"
-                  width="1600"
-                  height="284"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </picture>
+              <div
+                class="partners__scroll"
+                role="region"
+                tabindex="0"
+                aria-label="Deslize horizontalmente para visualizar todos os logotipos das instituições apoiadoras"
+                data-i18n-aria-label="accessibility.partnersScroll"
+              >
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="apoio-institucional-v2-480.webp 480w, apoio-institucional-v2-768.webp 768w, apoio-institucional-v2-1024.webp 1024w"
+                    sizes="(max-width: 639px) 560px, 576px"
+                  />
+                  <img
+                    src="Apoio.png"
+                    alt="Logotipos das instituições apoiadoras do BoraMiga"
+                    data-i18n-alt="accessibility.partnersImage"
+                    width="1024"
+                    height="209"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
               <figcaption class="visually-hidden" data-i18n="accessibility.partnersCaption">
-                PNUD, Governo do Estado do Rio de Janeiro, FAPERJ, FAETEC, Programa PISTA, Divas do Lucro, APMEA e
-                Explorando com Iris
+                Programa PISTA, FAETEC, FAPERJ, Secretaria de Ciência, Tecnologia e Inovação, Secretaria de Ambiente
+                e Sustentabilidade e Governo do Estado do Rio de Janeiro
               </figcaption>
             </figure>
           </div>
@@ -632,7 +640,7 @@
     </a>
 
     <script src="config.js?v=20260928-whatsapp" defer></script>
-    <script src="data.js?v=a2b844e" defer></script>
+    <script src="data.js?v=20261111-apoio" defer></script>
     <script src="script.js?v=a2b844e" defer></script>
   </body>
 </html>

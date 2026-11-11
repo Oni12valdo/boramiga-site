@@ -17,10 +17,15 @@ import os
 
 base = ${JSON.stringify(root)}
 
-def save_webp(img, path, quality=82):
+def save_webp(img, path, quality=82, lossless=False):
     if img.mode not in ("RGBA", "RGB"):
         img = img.convert("RGBA")
-    img.save(path, "WEBP", quality=quality, method=6)
+    options = {"method": 6}
+    if lossless:
+        options["lossless"] = True
+    else:
+        options["quality"] = quality
+    img.save(path, "WEBP", **options)
 
 def resize_width(img, target_w):
     if img.width <= target_w:
@@ -46,14 +51,15 @@ save_webp(resize_width(logo, 720), os.path.join(base, "logoboramiga.webp"), qual
 print("OK logoboramiga-logo.webp")
 print("OK logoboramiga.webp")
 
-for name in ("Apio.webp",):
-    src = os.path.join(base, name)
-    if os.path.exists(src):
-        img = Image.open(src).convert("RGBA")
-        save_webp(img, os.path.join(base, "Apio.webp"), quality=82)
-        for w in (480, 768):
-            save_webp(resize_width(img, w), os.path.join(base, f"Apio-{w}.webp"), quality=82)
-        print("OK Apio.webp + Apio-480.webp + Apio-768.webp")
+support_src = os.path.join(base, "Apoio.png")
+if not os.path.exists(support_src):
+    raise FileNotFoundError("Apoio.png não encontrado")
+
+support = Image.open(support_src).convert("RGB")
+for w in (480, 768, 1024):
+    out = os.path.join(base, f"apoio-institucional-v2-{w}.webp")
+    save_webp(resize_width(support, w), out, lossless=True)
+    print("OK", os.path.basename(out))
 `;
 
 const result = spawnSync("python3", ["-c", py], { stdio: "inherit" });

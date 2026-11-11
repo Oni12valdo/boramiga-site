@@ -1218,15 +1218,35 @@ body.nav-open .site-header__menu {
   line-height: 0;
 }
 
+.partners__scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-purple) transparent;
+}
+
+.partners__scroll:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--radius-sm);
+}
+
 .partners__figure img {
   display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
-  aspect-ratio: 1600 / 284;
+  aspect-ratio: 1024 / 209;
   margin-inline: auto;
   object-fit: contain;
   object-position: center;
+}
+
+@media (max-width: 639px) {
+  .partners__scroll picture {
+    min-width: 560px;
+  }
 }
 
 /* ── Footer ── */
