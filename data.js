@@ -24,7 +24,7 @@ window.BoraMigaTranslations = {
       openWhatsapp: "Abrir grupo VIP do BoraMiga no WhatsApp",
       email: "Enviar e-mail para o BoraMiga",
       heroImage: "Mulheres reunidas em encontro acolhedor",
-      outingImage: "Amigas em passeio e descontração ao ar livre",
+      outingImage: "Grupo de mulheres em passeio no Rio de Janeiro, com a marca BoraMiga",
       partnersScroll: "Deslize horizontalmente para visualizar todos os logotipos das instituições apoiadoras",
       partnersImage: "Logotipos das instituições apoiadoras do BoraMiga",
       partnersCaption: "Programa PISTA, FAETEC, FAPERJ, Secretaria de Ciência, Tecnologia e Inovação, Secretaria de Ambiente e Sustentabilidade e Governo do Estado do Rio de Janeiro"
@@ -113,7 +113,7 @@ window.BoraMigaTranslations = {
       openWhatsapp: "Open BoraMiga's VIP group on WhatsApp",
       email: "Email BoraMiga",
       heroImage: "Women gathered in a warm and welcoming setting",
-      outingImage: "Friends enjoying a relaxed day out together",
+      outingImage: "Group of women on an outing in Rio de Janeiro, with the BoraMiga brand",
       partnersScroll: "Scroll horizontally to view all supporting institution logos",
       partnersImage: "Logos of the institutions supporting BoraMiga",
       partnersCaption: "Programa PISTA, FAETEC, FAPERJ, Secretaria de Ciência, Tecnologia e Inovação, Secretaria de Ambiente e Sustentabilidade, and Governo do Estado do Rio de Janeiro"
